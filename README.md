@@ -57,13 +57,17 @@ section has it explains to best way to leave comments on the dissertation.
 
 ## Dependencies
 
-To install the dependencies (only supports linux systems) run the `install.sh` script.
+To build the dissertation one needs to have the following dependencies installed:
+
+- **xelatex** - Installed with `texlive-xetex`.
+- **lang-portuguese** - Installed with `texlive-lang-portuguese`.
+- **science** - Installed with `texlive-science`.
+
+The script `install.sh` installs all the dependencies for linux systems.
 
 ```console
 $ ./install.sh
 ```
-
-.. todo:: This is not yet implemented.
 
 ## Building the PDF
 
