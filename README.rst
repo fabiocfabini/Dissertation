@@ -13,6 +13,12 @@ The repository contains two branches:
 * **pre-thesis** - This branch contains the most up-to-date version of the pre-thesis report. If you are one of my 
   supervisors, then this is the branch you want to look at (unless told otherwise).
 
+.. note::
+
+    If you are one of my supervisors, then please read the :ref:`leaving_comment`
+    section has it explains to best way to leave comments on the dissertation.
+
+
 Dependencies
 ------------
 
@@ -22,7 +28,7 @@ To install the dependencies (only supports linux systems) run the `install.sh` s
 
     $ ./install.sh
 
-.. todo:: THIS IS NOT YET IMPLEMENTED
+.. todo:: This is not yet implemented.
 
 Building the PDF
 ----------------
@@ -39,3 +45,14 @@ Simply run the `build.sh` script. To successfully build the dissertation one sho
     $ ./build.sh
 
 This will generate a bunch of files, including the **dissertation.pdf** file that contains the final dissertation.
+
+.. _leaving_comments:
+
+Leaving Comments
+----------------
+
+.. note::
+
+    This section is only relevant to my supervisors.
+
+.. todo:: Add instructions on how to leave comments.
