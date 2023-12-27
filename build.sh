@@ -9,5 +9,6 @@ bibtex dissertation.aux
 makeindex dissertation
 makeglossaries dissertation
 xelatex dissertation.tex
+mv dissertation.pdf ../
 
 cd ..
