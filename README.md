@@ -2,10 +2,7 @@
 
 This repository contains all the files necessary to build my master's thesis dissertation.
 
-
-
 ## Branches
-
 
 The repository contains two branches:
 
@@ -30,8 +27,7 @@ $ ./install.sh
 
 .. todo:: This is not yet implemented.
 
-Building the PDF
-----------------
+## Building the PDF
 
 Simply run the `build.sh` script. To successfully build the dissertation one should have the follwing binaries installed:
 
@@ -43,6 +39,13 @@ Simply run the `build.sh` script. To successfully build the dissertation one sho
 ```console
 $ ./build.sh
 ```
+
+To clean the working directory run the `clean.sh` script.
+
+```console
+$ ./clean.sh
+```
+
 
 This will generate a bunch of files, including the **dissertation.pdf** file that contains the final dissertation.
 
