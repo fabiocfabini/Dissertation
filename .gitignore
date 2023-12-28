@@ -2,6 +2,7 @@
 *.zip
 
 # latex
+*.tdo
 *.acn
 *.aux
 *.glo
