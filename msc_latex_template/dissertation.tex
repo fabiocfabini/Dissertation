@@ -1,5 +1,17 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{dissertation}
+\usepackage{blindtext}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{regexpatch}
+
+% Make todo notes inline by default
+\makeatletter
+\xpatchcmd{\@todo}{\setkeys{todonotes}{#1}}{\setkeys{todonotes}{prepend,color=blue!20!white,inline,#1}}{}{}
+\makeatother
+
+\newcommand{\note}[2][]{\todo[color=green!20!white,#1]{#2}}
+\newcommand{\fixme}[2][]{\todo[color=red!20!white,#1]{#2}}
+
 \makeglossaries
 \makeindex
 
@@ -20,6 +32,8 @@
 
 %-- Covers
 \input{covers/Covers}
+
+\listoftodos
 
 %-- Document setup
 \newgeometry{right=25mm, left=25mm, top=25mm, bottom=25mm}
