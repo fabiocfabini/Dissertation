@@ -12,9 +12,9 @@ The repository contains two branches:
   supervisors, then this is the branch you want to look at (unless told otherwise).
 
 ---
-**NOTE**
-If you are one of my supervisors, then please read the [Leaving Comments](#leaving-comments)
-section has it explains to best way to leave comments on the dissertation.
+**NOTE TO SUPERVISORS:**
+Please read the [Leaving Comments](#leaving-comments) section has
+it explains to best way to leave comments on the dissertation.
 
 ## Dependencies
 
@@ -47,9 +47,6 @@ $ ./clean.sh
 
 
 ## Leaving Comments
-
----
-**NOTE** This section is only relevant to my supervisors.
 
 ---
 **TODO** Add instructions on how to leave comments.
