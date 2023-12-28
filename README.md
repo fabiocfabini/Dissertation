@@ -86,3 +86,17 @@ and with the following todo list:
 <p align="center">
   <img src="assets/todolist.png" alt="todonotes list" width="500"/>
 </p>
+
+### Using a comment
+
+Since I am developing my dissertation using vscode, I have access to an extension that searches my current directory for anything that matches the follwing regex:
+
+```regex
+\s*(TODO|FIXME|BUG|HACK|IDEA|NOTE).*$
+```
+
+Basically, start a line with any of the above keywords and the extension will highlight it.
+
+### Use whatever you want
+
+If you don't like any of the above options, then feel free to use whatever you want. Just make sure to tell me where to find your comments.
