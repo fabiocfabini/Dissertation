@@ -1,5 +1,17 @@
-\documentclass[12pt,a4paper]{report}
+\documentclass[12pt,a4paper]{article}
 \usepackage{dissertation}
+\usepackage{blindtext}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{regexpatch}
+
+% Make todo notes inline by default
+\makeatletter
+\xpatchcmd{\@todo}{\setkeys{todonotes}{#1}}{\setkeys{todonotes}{prepend,color=blue!20!white,inline,#1}}{}{}
+\makeatother
+
+\newcommand{\note}[2][]{\todo[color=green!20!white,#1]{#2}}
+\newcommand{\fixme}[2][]{\todo[color=red!20!white,#1]{#2}}
+
 \makeglossaries
 \makeindex
 
@@ -21,6 +33,8 @@
 %-- Covers
 \input{covers/Covers}
 
+\listoftodos
+
 %-- Document setup
 \newgeometry{right=25mm, left=25mm, top=25mm, bottom=25mm}
 \pagenumbering{roman}
@@ -29,59 +43,59 @@
 \setlength{\parindent}{1.5em}
 
 %-- Preamble
-\input{preamble/Copyright}
-\input{preamble/Acknowledgements}
-\input{preamble/StatementofIntegrity}
-\input{preamble/Abstract}
+% \input{preamble/Copyright}
+% \input{preamble/Acknowledgements}
+% \input{preamble/StatementofIntegrity}
+% \input{preamble/Abstract}
 
-\phantomsection
-\tableofcontents
+% \phantomsection
+% \tableofcontents
 
-\cleardoublepage
-\listoffigures
+% \cleardoublepage
+% \listoffigures
 
 % List of tables
-\renewcommand*{\listtablename}{List of Tables}
-\listoftables
-\clearpage
+% \renewcommand*{\listtablename}{List of Tables}
+% \listoftables
+% \clearpage
 
 % Acronyms
-\printglossary[type=\acronymtype,nonumberlist, title={Acronyms}]
+% \printglossary[type=\acronymtype,nonumberlist, title={Acronyms}]
 
 % Glossary
-\printglossary[title={Glossary}, nonumberlist]
+% \printglossary[title={Glossary}, nonumberlist]
 
-\cleardoublepage
+% \cleardoublepage
 \pagenumbering{arabic}
 
 %-- Dissertation
-\part{Introductory material}
+% \part{Introductory material}
 
-\input{chapters/Introduction}
-\input{chapters/StateOfTheArt}
-\input{chapters/ProblemAndChallenges}
+\input{sections/Introduction}
+\input{sections/StateOfTheArt}
+\input{sections/ProblemAndChallenges}
 
-\part{Core of the Dissertation}
+% \part{Core of the Dissertation}
 
-\input{chapters/Contribution}
-\input{chapters/Applications}
-\input{chapters/ConclusionsAndFutureWork}
-\input{chapters/PlannedSchedule}
+% \input{chapters/Contribution}
+% \input{chapters/Applications}
+% \input{chapters/ConclusionsAndFutureWork}
+\input{sections/PlannedSchedule}
 
 \renewcommand{\baselinestretch}{1}
-\bibliographystyle{plainnat}
+\bibliographystyle{plain}
 \bibliography{dissertation}
-\printindex
+% \printindex
 
-\appendix
-\renewcommand\chaptername{Appendix}
+% \appendix
+% \renewcommand\chaptername{Appendix}
 
-\part{Appendices}
+% \part{Appendices}
 
-\input{appendices/SupportWork}
-\input{appendices/DetailsOfResults}
-\input{appendices/Listings}
-\input{appendices/Tooling}
+% \input{appendices/SupportWork}
+% \input{appendices/DetailsOfResults}
+% \input{appendices/Listings}
+% \input{appendices/Tooling}
 
 \input{covers/BackCover}
 
