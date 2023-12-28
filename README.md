@@ -48,5 +48,41 @@ $ ./clean.sh
 
 ## Leaving Comments
 
----
-**TODO** Add instructions on how to leave comments.
+There are a 3 ways that you may leave comments on the dissertation
+
+### Using the `todonotes` latex package
+
+The `todonotes` latex package offers some nice features for leaving comments in a latex document. For simplicity I defined some
+macros in top of [this](msc_latex_template/dissertation.tex) file that simplify 99% of all the comments that you may want to leave.
+
+To add a note simply use the `\note` macro like so:
+
+```latex
+\note{This is a note}
+```
+
+I recommend that you use the `\note` macro with at least the following options:
+
+```latex
+\note[author=Your Name, caption=Some short description]{This is a note}
+```
+
+I also defined `todo` and `fixme` macros that change only the color of the note sticker. The following example
+
+```latex
+\blindtext\todo[author=Your Name, caption=Some short description]{This is a todo}
+\blindtext\note[author=Your Name, caption=Some short description]{This is a note}
+\blindtext\fixme[author=Your Name, caption=Some short description]{This is a fixme}
+```
+
+will be rendered as follows
+
+<p align="center">
+  <img src="assets/todonotes.png" alt="todonotes" width="500"/>
+</p>
+
+and with the following todo list:
+
+<p align="center">
+  <img src="assets/todolist.png" alt="todonotes list" width="500"/>
+</p>
