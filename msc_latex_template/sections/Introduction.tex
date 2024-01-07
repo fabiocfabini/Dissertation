@@ -1,1 +1,163 @@
 \section{Introduction}
+
+The quest to understand the universe at its most fundamental level drives the core of particle physics research. Particle colliders, key instruments in this research process, accelerate and collide particles to reveal new insights through the analysis of the byproducts of such collisions. The efficacy of these colliders, relies heavily on a critical factor: the luminosuty, $\mathcal{L}$. This parameter, quantifying the rate at which particles pass through a given area, directly influences the number of collisions a collider can produce. Furthermore, since the calculated cross sections of particle interactions are highly dependent on precise luminosity measurements, the accurate determination of luminosity becomes crucial in particle physics research.
+
+\subsection{The Large Hadron Collider}
+\label{subsec:lhc}
+
+The Large Hadron Collider (LHC) at the European Organization for Nuclear Research (CERN) is a monumental particle accelerator \cite{lhc}. It's an underground facility spanning the border of France and Switzerland. The LHC stands as the world's largest particle accelerator, boasting a circumference of 27 kilometers and a maximum energy capacity for proton-proton collisions of 14 TeV, which equates to 7 TeV per beam.
+
+Acceleration within the LHC is achieved using radio frequency (RF) cavities that oscillate at 400 MH$z$. This RF system accelerates the beams in opposite directions within two separate beam pipes, bringing them into collision at four Interaction Points (IPs). These correspond to the four main experiments at the LHC where detectors are strategically placed to capture the results of the collisions. These experiments are ALICE (A Large Ion Collider Experiment), ATLAS (A Toroidal LHC ApparatuS), CMS (Compact Muon Solenoid), and LHCb (Large Hadron Collider beauty).
+
+
+The beams in the LHC consist of bunches, with each bunch holding roughly $1.15 \times 10^11$ protons. The maximum number of these bunches depends on the oscillating frequency of the RF cavities. Currently, the LHC operates with 3564 bunches in each beam, spaced 25 nanoseconds apart. A series of these bunches is referred to as a train. In this train, the first bunch is called the leading bunch, while the subsequent ones are known as trailing bunches. Each cycle of operation in the LHC, called a fill, follows a specific arrangement of these bunches, known as a filling scheme.
+
+% \subsection{CERN Accelerator Complex}
+
+% The LHC is just one part of the CERN accelerator complex. Before protons are injected into the LHC, they pass through a sequence of smaller accelerators that progressively increase their energy. This series of accelerators forms the comprehensive CERN accelerator complex. This complex is shown in \ref{fig:cern_acc_complex}.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=\textwidth]{sections/images/accelerator_chain.pdf}
+%     \caption{Diagram of the CERN Accelerator Sequence (from \textit{Ref.} \cite{cern-accelerator-complex}): This image
+%         outlines the sequence of accelerators a particle beam traverses before reaching the LHC at CERN.}
+%     \label{fig:cern_acc_complex}
+% \end{figure}
+
+% The CERN accelerator complex begins its operations with the Linear Accelerator 4 (Linac4) \cite{Linac4}, which, since 2020, has served as the primary source for proton beams. Linac4 boosts the energy of negative hydrogen ions (H$^-$), essentially hydrogen atoms with an additional electron, to 160 million MeV. These ions are then readied to enter the Proton Synchrotron Booster (PSB), where they lose their two extra electrons and only the protons remain. The PSB further accelerates these protons to 2 GeV, before they proceed to the Proton Synchrotron (PS). At the PS, the proton energy is increased to 26 GeV. Subsequently, the protons are directed to the Super Proton Synchrotron (SPS), where their energy reaches 450 GeV. Finally, these protons are conveyed to the Large Hadron Collider (LHC), where two beams are accelerated to a cumulative energy of 14 TeV.
+
+% In addition to protons, the LHC also accelerates heavy ions, namely, lead and xenon cores. These ions initially enter the Linear Accelerator 3 (Linac3). Once gathered, they are sped up in the Low Energy Ion Ring (LEIR) and eventually follow the same trajectory as the protons to reach their maximum energy level.
+
+\subsection{CMS Experiment}
+
+The Compact Muon Solenoid (CMS) \cite{TheCMSCollaboration_2008}, is a multi-purpose detector operating at the LHC. It was designed to operate under high luminosity conditions ($10^34$cm$^{-2}$s$^{-1}$) and to produce collisions at a center-of-mass energy of 14 TeV. These conditions require radiation resistant, high granularity detectors and a carefully designed readout and trigger system. To fullfill its requirements the CMS apparatus is composed of a series of subsystems. \autoref{fig:cms_detector} shows a schematic of the CMS detector and its subsystems.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{sections/images/cms_detector.png}
+    \caption{Schematic of the CMS detector (adapted from \textit{Ref.} \cite{CERN:39040}): Outline of the CMS detector and its subsystems.}
+    \label{fig:cms_detector}
+\end{figure}
+
+CMS is located underground close to the French village of Cessy, between Lake Geneva and the Jura mountains. It addopted a right-hand coordinate system with an origin centered at the collision point inside the LHC. The z-axis is pointing along the beam direction and towards the Jura mountains with the y-axis pointing directly upwards. This leaves the x-axis pointing radially inwards towards the center of the LHC ring. The azimuthal angle, $\phi$, is measured from the x-axis in the x-y plane and the the radial distance, $r$, is measured from this plane. The polar angle, $\theta$, is measured from the z-axis. The pseudorapidity, $\eta$, is defined as $\eta = - \ln \tan (\theta / 2)$.
+
+
+\section{Luminosity}
+\label{sec:luminosity}
+
+Luminosity is essential in particle physics research for two key reasons. Accurate measurements of instantaneous luminosity are crucial for tracking the performance of both the accelerator and its associated detectors \cite{PhysRevAccelBeams.21.102801}. Moreover, integrated luminosity often emerges as the main source of uncertainty in numerous cross-section measurements \cite{cms2022measurement, sirunyan2019measurement}.
+
+\subsection{Instantaneous and Integrated Luminosity}
+
+Luminosity, $\mathcal{L}$, is a key parameter in particle colliders, quantifying its ability to produce collisions. It is defined as the ratio between the rate of events, $R$, and the cross section of a given process, $\sigma$, being studied:
+\begin{equation}
+    \label{eq:inst-luminosity}
+    \mathcal{L} = \frac{R}{\sigma}
+\end{equation}
+$\mathcal{L}$ has then units of $[area]^{-1} [time]^{-1}$ where cm$^{-2}$s$^{-1}$ or fb$^{-1}$s$^{-1}$ are common units ($1$ barn  $= 10^{-28}$ m$^{-2}$). Integrating over a given time interval, $t_2 - t_1$, yields the integrated luminosity, $L$:
+\begin{equation*}
+    \label{eq:int-luminosity}
+    L = \int_{t_1}^{t_2} \mathcal{L} dt = \int_{t_1}^{t_2} \frac{R}{\sigma} dt = \frac{N}{\sigma}
+\end{equation*}
+It follows that $L$ is proportional to the number of events, $N$, produced in the collider.
+
+\subsection{Luminosity from Machine Parameters}
+
+The instantaneous luminosity for a single bunch crossing, denoted as $\mathcal{L}_b$, can be calculated using the collider's machine parameters \cite{Burkhardt:1056691}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{sections/images/bunch_crossing.png}
+    \caption{Bunch crossing ilustration (from \textit{Ref.} \cite{Burkhardt:1056691}).}
+    \label{fig:bunch_crossing}
+\end{figure}
+For colliding bunches containing $N_1$ and $N_2$ particles respectively, the expected value of $\mathcal{L}_b$ is given by the following equation:
+\begin{equation}
+    \label{eq:sbil-machine-params}
+    \mathcal{L}_b = \frac{N_1 N_2 f_{rev}}{A_{eff}}
+\end{equation}
+In this equation, $f_{rev}$ represents the revolution frequency of the LHC, and $A_{eff}$ is the effective transverse area where collisions occur. If the transverse distribution of particles was normal, $A_{eff}$ would be equivalent to the transverse bunch overlap. However, considering the transverse particle distributions $\rho_1$ for bunch 1 and $\rho_2$ for bunch 2, the effective transverse area is defined by the overlap integral:
+\begin{equation*}
+    \label{eq:effective-area}
+    \frac{1}{A_{eff}} = 2 \int \rho_1(x,y) \rho_2(x,y) dxdy
+\end{equation*}
+The factor of 2 is the Møller factor, which accounts for the fact that the two bunches are colliding at equal relativistic speeds \cite{furman2003moeller}. Typically, it's assumed that these transverse particle distributions are uncoupled, meaning $\rho_1(x,y) = \rho_{1x}(x)\rho_{1y}(y)$ and similarly for
+$\rho_2(x,y)$. With this assumption, the effective transverse area can be rewritten as:
+\begin{equation}
+    \label{eq:effective-area}
+    \frac{1}{A_{eff}} = 2 \int \rho_{1x}(x) \rho_{2x}(x) dx \times \int \rho_{1y}(y) \rho_{2y}(y) dy = \frac{1}{\Sigma_X} \times \frac{1}{\Sigma_Y}
+\end{equation}
+Here, $\Sigma_X$ and $\Sigma_X$ represent the effective transverse width and height, respectively. Substituting this back into equation \ref{eq:sbil-machine-params}, we get:
+\begin{equation}
+    \label{eq:sbil-machine-params-2}
+    \mathcal{L}_b = 2 N_1 N_2 f_{rev} \int \rho_{1x}(x) \rho_{2x}(x) dx \times \int \rho_{1y}(y) \rho_{2y}(y) dy
+\end{equation}
+Further assuming Gaussian transverse particle distributions with widths $\sigma_{x1}$, $\sigma_{x2}$ and heights $\sigma_{y1}$, $\sigma_{y2}$, the equation becomes:
+\begin{equation}
+    \label{eq:sbil-machine-params-3}
+    \mathcal{L}_b = 2 N_1 N_2 f_{rev} \int G_x (\sigma_{x1}) G_x (\sigma_{x2}) dx \times \int G_y (\sigma_{y1}) G_y (\sigma_{y2}) dy
+\end{equation}
+$G_i (\sigma)$ in this context is the Gaussian distribution with standard deviation $\sigma$ in the $i \in {x,y}$ direction and a mean of zero:
+\begin{equation*}
+    \label{eq:gaussian-distribution}
+    G_i (\sigma) = \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{i^2}{2 \sigma^2}}
+\end{equation*}
+Analytical solution of these integrals leads to the following expression:
+\begin{equation}
+\label{eq:sbil-machine-params-4}
+\mathcal{L}_b = \frac{N_1 N_2 f_{rev}}{2 \pi \Sigma_X \Sigma_Y}
+\end{equation}
+where $\Sigma_X = \sqrt{\sigma_{x1}^2 + \sigma_{x2}^2}$ and $\Sigma_Y = \sqrt{\sigma_{y1}^2 + \sigma_{y2}^2}$. This is the equation used for the single bunch instantaneous luminosity based on machine parameters.
+
+\subsection{Calibration of Luminometers}
+\label{subsec:calibration}
+
+Luminometers are detectors located at the IPs of the LHC that measure the the observable quantities of the collisions which get converted to rates of events. It is possible to convert these rates to luminosity by introducing a calibration factor. Due to the differences between the luminometers and the nature of the recorded observables, each luminometer is assumed to only capture a fraction of the total events. This fraction is referred to as the visible cross section, $\sigma_{vis}$ and is luminometer-specific. Using equations \ref{eq:inst-luminosity} and \ref{eq:sbil-machine-params-3} it can be expressed as:
+\begin{equation}
+    \label{eq:vis-cross-section}
+    \sigma_{vis} = \frac{2 \pi \Sigma_X \Sigma_Y R}{N_1 N_2 f_{rev}}
+\end{equation}
+Once calculated, the visible cross section can be used to convert the measured rates to luminosity:
+\begin{equation}
+    \label{eq:luminosity-from-rates}
+    \mathcal{L} = \frac{R}{\sigma_{vis}}
+\end{equation}
+In both these equations, $R$ represents the measured rate of events from a particular luminometer.
+
+% \subsection{Van der Meer Method}
+
+% In pratice, the visible cross section is calculated using the van der Meer (vdM) scan method. This method, originally proposed by Simon van der Meer, introduces a novel way to measure the transverse width and height of the bunch overlap \cite{vanderMeer:296752}, expanding the work in \cite{Rubbia:1025746}, and thus the effective transverse area.
+
+% A vdM scan consists of incremental shifts of the beams with respect to each other in the transverse plane. The collisions are then recorded and the rates, $R$, are measured by the luminometers. An example of a vdM scan is shown in figure \ref{fig:vdm-scan-steps}.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{sections/images/vdm_scan_steps.png}
+%     \caption{LHC beam positions during a vdM scan (from \textit{Ref.} \cite{Saariokari:2826125}).}
+%     \label{fig:vdm-scan-steps}
+% \end{figure}
+
+% When the beam positions in the scan plane are the same, they are said to be in the head-on position. This corresponds to the maximum overlap between the beams and thus the maximum recorded rates. The visible cross section for a given luminometer can then be calculated as:
+% \begin{equation}
+%     \label{eq:vis-cross-section-vdm}
+%     \sigma_{vis} = \frac{2 \pi \Sigma_X \Sigma_Y R_{\mathrm{peak}}}{N_1 N_2 f_{rev}}
+% \end{equation}
+% Here, $\Sigma_X$ and $\Sigma_Y$ are obtained by fitting the measured rates to a Gaussian distribution and extrating the fit parameters. $R_{\mathrm{peak}}$ is the measured rate at the head-on position. The visible cross section is then used to convert the measured rates to luminosity using equation \ref{eq:luminosity-from-rates}.
+
+% \subsection{Zero Counting Method}
+
+% Due to the constraints in the read-out electronics of the luminometers, there's a chance that simultaneous particle hits might be recorded as a single event. This necessitates a more advanced approach for counting hits accurately. It is postulated that the distribution of the number of hits can be modeled by a Poisson distribution \cite{TheLHCbcollaboration_2014} with mean, $\mu$, that is proportional to luminosity.
+% \begin{equation}
+%     \label{eq:luminosity-from-hits}
+%     \mathcal{L}_b = \frac{\mu f_{rev}}{\sigma}
+% \end{equation}
+% The zero counting method is based on this assumption. It consists of calculating the probability that a luminometer records zero hits, $P_0$, regardless of the number of collisons that occur. This probability is given by the following equation:
+% \begin{equation}
+%     \label{eq:zero-counting}
+%     P_0 = \sum_{i=0}^{\infty} \frac{\mu^i e^{-\mu}}{i!} p^i = e^{-\mu(1-p)}
+% \end{equation}
+% $\mu$ is the mean number of hits per bunch crossing and $p$ is the probability that no observables are recorded in a bunch crossing with $i$ interactions. It then follows that luminosity is proportional to the natural logarithm of $P_0$:
+% \begin{equation}
+%     \label{eq:luminosity-from-hits-2}
+%     \mathcal{L}_b = \frac{\mu f_{rev}}{\sigma} = - \frac{\log (P_0)}{1-p} \frac{f_{rev}}{\sigma} = - \log (P_0) \frac{f_{rev}}{\sigma_{\mathrm{vis}}}
+% \end{equation}
+% The value of $p$ is here absorved into the visible cross section \cite{Sirunyan:2759951} and does not need to be know beforehand.
