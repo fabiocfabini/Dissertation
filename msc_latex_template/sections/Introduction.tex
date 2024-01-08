@@ -1,6 +1,6 @@
 \section{Introduction}
 
-The quest to understand the universe at its most fundamental level drives the core of particle physics research. Particle colliders, key instruments in this research process, accelerate and collide particles to reveal new insights through the analysis of the byproducts of such collisions. The efficacy of these colliders, relies heavily on a critical factor: the luminosuty, $\mathcal{L}$. This parameter, quantifying the rate at which particles pass through a given area, directly influences the number of collisions a collider can produce. Furthermore, since the calculated cross sections of particle interactions are highly dependent on precise luminosity measurements, the accurate determination of luminosity becomes crucial in particle physics research.
+The quest to understand the universe at its most fundamental level drives the core of particle physics research. Particle colliders, key instruments in this research process, accelerate and collide particles to reveal new insights through the analysis of the byproducts of such collisions. The efficacy of these colliders, relies heavily on a critical factor: the luminosuty, $\mathcal{L}$. This parameter, quantifying the rate at which particles pass through a given area, directly influences the number of collisions a collider can produce. Furthermore, precise knowledge of luminosity is crucial for the accurate measurement of cross sections, tracking collider performance and detector calibration. This pre-thesis report aims at providing a brief description on particle physics at the Large Hadron Collider, an overview on the concept of luminosity and the current state of the art in luminosity measurements at the Compact Muon Solenoid experiment.
 
 \subsection{The Large Hadron Collider}
 \label{subsec:lhc}
@@ -10,7 +10,7 @@ The Large Hadron Collider (LHC) at the European Organization for Nuclear Researc
 Acceleration within the LHC is achieved using radio frequency (RF) cavities that oscillate at 400 MH$z$. This RF system accelerates the beams in opposite directions within two separate beam pipes, bringing them into collision at four Interaction Points (IPs). These correspond to the four main experiments at the LHC where detectors are strategically placed to capture the results of the collisions. These experiments are ALICE (A Large Ion Collider Experiment), ATLAS (A Toroidal LHC ApparatuS), CMS (Compact Muon Solenoid), and LHCb (Large Hadron Collider beauty).
 
 
-The beams in the LHC consist of bunches, with each bunch holding roughly $1.15 \times 10^11$ protons. The maximum number of these bunches depends on the oscillating frequency of the RF cavities. Currently, the LHC operates with 3564 bunches in each beam, spaced 25 nanoseconds apart. A series of these bunches is referred to as a train. In this train, the first bunch is called the leading bunch, while the subsequent ones are known as trailing bunches. Each cycle of operation in the LHC, called a fill, follows a specific arrangement of these bunches, known as a filling scheme.
+The beams in the LHC consist of bunches, with each bunch holding roughly $1.15 \times 10^{11}$ protons. The maximum number of these bunches depends on the oscillating frequency of the RF cavities. Currently, the LHC operates with 3564 bunches in each beam, spaced 25 nanoseconds apart. A series of these bunches is referred to as a train. In this train, the first bunch is called the leading bunch, while the subsequent ones are known as trailing bunches. Each cycle of operation in the LHC, called a fill, follows a specific arrangement of these bunches, known as a filling scheme.
 
 % \subsection{CERN Accelerator Complex}
 
@@ -30,7 +30,7 @@ The beams in the LHC consist of bunches, with each bunch holding roughly $1.15 \
 
 \subsection{CMS Experiment}
 
-The Compact Muon Solenoid (CMS) \cite{TheCMSCollaboration_2008}, is a multi-purpose detector operating at the LHC. It was designed to operate under high luminosity conditions ($10^34$cm$^{-2}$s$^{-1}$) and to produce collisions at a center-of-mass energy of 14 TeV. These conditions require radiation resistant, high granularity detectors and a carefully designed readout and trigger system. To fullfill its requirements the CMS apparatus is composed of a series of subsystems. \autoref{fig:cms_detector} shows a schematic of the CMS detector and its subsystems.
+The Compact Muon Solenoid (CMS) \cite{TheCMSCollaboration_2008}, is a multi-purpose detector operating at the LHC. It was designed to operate under high luminosity conditions and to produce collisions at a center-of-mass energy of 14 TeV. These conditions require radiation resistant, high granularity detectors and a carefully designed readout and trigger system. To fullfill its requirements the CMS apparatus is composed of a series of subsystems. \autoref{fig:cms_detector} shows a schematic of the CMS detector and its subsystems.
 
 \begin{figure}[h]
     \centering
@@ -39,13 +39,13 @@ The Compact Muon Solenoid (CMS) \cite{TheCMSCollaboration_2008}, is a multi-purp
     \label{fig:cms_detector}
 \end{figure}
 
-CMS is located underground close to the French village of Cessy, between Lake Geneva and the Jura mountains. It addopted a right-hand coordinate system with an origin centered at the collision point inside the LHC. The z-axis is pointing along the beam direction and towards the Jura mountains with the y-axis pointing directly upwards. This leaves the x-axis pointing radially inwards towards the center of the LHC ring. The azimuthal angle, $\phi$, is measured from the x-axis in the x-y plane and the the radial distance, $r$, is measured from this plane. The polar angle, $\theta$, is measured from the z-axis. The pseudorapidity, $\eta$, is defined as $\eta = - \ln \tan (\theta / 2)$.
+CMS is located underground close to the French village of Cessy, between Lake Geneva and the Jura mountains. It addopted a right-hand coordinate system with an origin centered at the collision point inside the LHC. The $z$-axis is pointing along the beam direction and towards the Jura mountains with the $y$-axis pointing directly upwards. This leaves the $x$-axis pointing radially inwards towards the center of the LHC ring. The azimuthal angle, $\phi$, is measured from the $x$-axis in the $xOy$ plane and the the radial distance, $r$, is measured from this plane. The polar angle, $\theta$, is measured from the $z$-axis. The pseudorapidity, $\eta$, is defined as $\eta = - \ln \tan (\theta / 2)$.
 
 
 \section{Luminosity}
 \label{sec:luminosity}
 
-Luminosity is essential in particle physics research for two key reasons. Accurate measurements of instantaneous luminosity are crucial for tracking the performance of both the accelerator and its associated detectors \cite{PhysRevAccelBeams.21.102801}. Moreover, integrated luminosity often emerges as the main source of uncertainty in numerous cross-section measurements \cite{cms2022measurement, sirunyan2019measurement}.
+Luminosity is essential in particle physics research for two key reasons. Accurate measurements of instantaneous luminosity are crucial for tracking the performance of both the accelerator and its associated detectors \cite{PhysRevAccelBeams.21.102801}. Moreover, integrated luminosity often emerges as the main source of uncertainty in numerous cross-section measurements \cite{cms2022measurement, sirunyan2019measurement}. In this section an overview of the concept of luminosity is presented.
 
 \subsection{Instantaneous and Integrated Luminosity}
 
@@ -54,12 +54,13 @@ Luminosity, $\mathcal{L}$, is a key parameter in particle colliders, quantifying
     \label{eq:inst-luminosity}
     \mathcal{L} = \frac{R}{\sigma}
 \end{equation}
-$\mathcal{L}$ has then units of $[area]^{-1} [time]^{-1}$ where cm$^{-2}$s$^{-1}$ or fb$^{-1}$s$^{-1}$ are common units ($1$ barn  $= 10^{-28}$ m$^{-2}$). Integrating over a given time interval, $t_2 - t_1$, yields the integrated luminosity, $L$:
+$\mathcal{L}$ has then units of $[\mathrm{area}]^{-1} [\mathrm{time}]^{-1}$ where cm$^{-2}$s$^{-1}$ or fb$^{-1}$s$^{-1}$ are common units ($1$ barn  $= 10^{-28}$ m$^{-2}$). Integrating over a given time interval, $t_2 - t_1$, yields the integrated luminosity, $L$:
 \begin{equation*}
     \label{eq:int-luminosity}
     L = \int_{t_1}^{t_2} \mathcal{L} dt = \int_{t_1}^{t_2} \frac{R}{\sigma} dt = \frac{N}{\sigma}
 \end{equation*}
 It follows that $L$ is proportional to the number of events, $N$, produced in the collider.
+\note[caption=Alternative Luminosity Measurement]{Should I mention luminosity can be measured is the cross sections for a given process is well known (like $e^+ e^- \rightarrow e^+ e^-$) but for hadron colliders the cross sections are not as well known? I remember reading about this somewhere and Olena's thesis (\url{https://www.researchgate.net/publication/321696506_Luminosity_measurement_at_CMS}) also mentions this.}
 
 \subsection{Luminosity from Machine Parameters}
 
@@ -75,12 +76,12 @@ For colliding bunches containing $N_1$ and $N_2$ particles respectively, the exp
     \label{eq:sbil-machine-params}
     \mathcal{L}_b = \frac{N_1 N_2 f_{rev}}{A_{eff}}
 \end{equation}
-In this equation, $f_{rev}$ represents the revolution frequency of the LHC, and $A_{eff}$ is the effective transverse area where collisions occur. If the transverse distribution of particles was normal, $A_{eff}$ would be equivalent to the transverse bunch overlap. However, considering the transverse particle distributions $\rho_1$ for bunch 1 and $\rho_2$ for bunch 2, the effective transverse area is defined by the overlap integral:
+In this equation, $f_{rev}$ represents the revolution frequency of the LHC (11245 H$z$), and $A_{eff}$ is the effective transverse area where collisions occur. If the transverse distribution of particles was normal, $A_{eff}$ would be equivalent to the transverse bunch overlap. However, considering the transverse particle distributions $\rho_1$ for bunch 1 and $\rho_2$ for bunch 2, the effective transverse area is defined by the overlap integral:
 \begin{equation*}
     \label{eq:effective-area}
     \frac{1}{A_{eff}} = 2 \int \rho_1(x,y) \rho_2(x,y) dxdy
 \end{equation*}
-The factor of 2 is the Møller factor, which accounts for the fact that the two bunches are colliding at equal relativistic speeds \cite{furman2003moeller}. Typically, it's assumed that these transverse particle distributions are uncoupled, meaning $\rho_1(x,y) = \rho_{1x}(x)\rho_{1y}(y)$ and similarly for
+The factor of 2 is the Møller factor, which accounts for the fact that the two bunches are colliding at equal relativistic speeds \cite{furman2003moeller} and in opposite directions. Typically, it's assumed that these transverse particle distributions are uncoupled, meaning $\rho_1(x,y) = \rho_{1x}(x)\rho_{1y}(y)$ and similarly for
 $\rho_2(x,y)$. With this assumption, the effective transverse area can be rewritten as:
 \begin{equation}
     \label{eq:effective-area}

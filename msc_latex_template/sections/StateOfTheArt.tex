@@ -5,7 +5,7 @@ CERN's mission of understanding the fundamental structure of the universe is hea
 \subsection{The van der Meer Scan Method and the van der Meer Framework}
 \label{subsec:vdM}
 
-In pratice, the visible cross section is calculated using the van der Meer (vdM) scan method. This method, originally proposed by Simon van der Meer, introduces a novel way to measure the transverse width and height of the bunch overlap \cite{vanderMeer:296752}, expanding the work in \cite{Rubbia:1025746}, and thus the effective transverse area. It works under the assumption that the transverse proton bunch density distributions are factorizable into x and y separate distributions. This method is not only by the CMS experiment but also by all the other LHC experiments \cite{Maettig:1513982,TheLHCbcollaboration_2014,ALICE-PUBLIC-2021-001}.
+In pratice, the visible cross section is calculated using the van der Meer (vdM) scan method. This method, originally proposed by Simon van der Meer, introduces a novel way to measure the transverse width and height of the bunch overlap \cite{vanderMeer:296752}, expanding the work in \cite{Rubbia:1025746}, and thus the effective transverse area. It works under the assumption that the transverse proton bunch density distributions are factorizable into x and y separate distributions. This method is not only used by the CMS experiment but also by all the other LHC experiments \cite{Maettig:1513982,TheLHCbcollaboration_2014,ALICE-PUBLIC-2021-001}.
 
 \subsubsection{Van der Meer Scan Method}
 \label{subsubsec:vdm-method}
@@ -70,14 +70,16 @@ An example of a fit produced by the framework, illustrating its capabilities, is
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{sections/images/fit_sg.png}
+        \caption{}
         \label{fig:vdm-example-fit-sg}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{sections/images/fit_dg.png}
+        \caption{}
         \label{fig:vdm-example-fit-dg}
     \end{subfigure}
-    \caption{Example fit produced by the VdMFramework. The y-axis contains the normalized rates for the PLT luminometer and the x-axis the beam-beam seperation. The left figure shows the fit using a single Gaussian function while the right figure shows the fit using a double Gaussian function. }
+    \caption{Example fit produced by the VdMFramework. The y-axis contains the normalized rates for the PLT luminometer and the x-axis the beam-beam seperation. \autoref{fig:vdm-example-fit-sg} shows the fit using a single Gaussian function while \autoref{fig:vdm-example-fit-dg} shows the fit using a double Gaussian function. }
     \label{fig:vdm-example-fit}
 \end{figure}
 
