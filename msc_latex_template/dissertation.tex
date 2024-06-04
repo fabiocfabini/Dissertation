@@ -1,0 +1,124 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage{dissertation}
+\makeglossaries
+\makeindex
+
+%\logo{EAAD}{School of Architecture, Art and Design}{}
+%\logoB{EAAD}{School of Architecture, Art and Design}{}
+
+%\logo{EC}{School of Sciences}{}
+%\logoB{EC}{School of Sciences}{}
+
+%\logo{ED}{Law School}{}
+%\logoB{ED}{Law School}{}
+
+\logo{EE}{School of Engineering}{}
+\logoB{EE}{School of Engineering}{}
+
+%\logo{EEG}{School of Economics and Management}{}
+%\logoB{EEG}{School of Economics and Management}{}
+
+%\logo{ELACH}{School of Letters, Arts and Human Sciences}{}
+%\logoB{ELACH}{School of Letters, Arts and Human Sciences}{}
+
+%\logo{EM}{Medical school}{}
+%\logoB{EM}{Medical school}{}
+
+%\logo{EP}{School of Psychology}{}
+%\logoB{EP}{School of Psychology}{}
+
+%\logo{ESE}{Higher School of Nursing}{}
+%\logoB{ESE}{Higher School of Nursing}{}
+
+%\logo{I3Bs}{Research Institute on Biomaterials,}{Biodegradables and Biomimetics}
+%\logoB{I3Bs}{Research Institute on Biomaterials,}{Biodegradables and Biomimetics}
+
+%\logo{ICS}{Institute of Social Sciences}{}
+%\logoB{ICS}{Institute of Social Sciences}{}
+
+%\logo{IE}{Institute of Education}{}
+%\logoB{IE}{Institute of Education}{}
+
+\author{Author's full name}
+
+\titleA{Title Title Title Title Title Title}
+\titleB{Title Title Title Title Title}
+\titleC{Title Title Title Title}
+
+\masters{Master’s Dissertation in Informatics Engineering}
+%\area{Area of specialization}
+\supervisor{Supervisor Name}
+\cosupervisor{Co-Supervisor Name}
+
+\bibpunct[,]{(}{)}{;}{a}{,}{,}
+\begin{document}
+\setlength{\parindent}{0em}
+
+%-- Covers
+\input{covers/Covers}
+
+%-- Document setup
+\newgeometry{right=25mm, left=25mm, top=25mm, bottom=25mm}
+\pagenumbering{roman}
+
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1.5em}
+
+%-- Preamble
+\input{preamble/Copyright}
+\input{preamble/Acknowledgements}
+\input{preamble/StatementofIntegrity}
+\input{preamble/Abstract}
+
+\phantomsection
+\tableofcontents
+
+\cleardoublepage
+\listoffigures
+
+% List of tables
+\renewcommand*{\listtablename}{List of Tables}
+\listoftables
+\clearpage
+
+% Acronyms
+\printglossary[type=\acronymtype,nonumberlist, title={Acronyms}]
+
+% Glossary
+\printglossary[title={Glossary}, nonumberlist]
+
+\cleardoublepage
+\pagenumbering{arabic}
+
+%-- Dissertation 
+\part{Introductory material}
+
+\input{chapters/Introduction}
+\input{chapters/StateOfTheArt}
+\input{chapters/ProblemAndChallenges}
+
+\part{Core of the Dissertation}
+
+\input{chapters/Contribution}
+\input{chapters/Applications}
+\input{chapters/ConclusionsAndFutureWork}
+\input{chapters/PlannedSchedule}
+
+\renewcommand{\baselinestretch}{1}
+\bibliographystyle{plainnat}
+\bibliography{dissertation}
+\printindex
+
+\appendix
+\renewcommand\chaptername{Appendix}
+
+\part{Appendices}
+
+\input{appendices/SupportWork}
+\input{appendices/DetailsOfResults}
+\input{appendices/Listings}
+\input{appendices/Tooling}
+
+\input{covers/BackCover}
+
+\end{document}
