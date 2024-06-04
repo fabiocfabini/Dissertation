@@ -1,0 +1,23 @@
+.vscode/
+
+# latex
+*.acn
+*.aux
+*.glo
+*.glsdefs
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.out
+*.pdf
+*.toc
+*.bbl
+*.blg
+*.acr
+*.alg
+*.glg
+*.gls
