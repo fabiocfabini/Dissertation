@@ -22,6 +22,6 @@ rm -rf **/*.acr
 rm -rf **/*.alg
 rm -rf **/*.glg
 rm -rf **/*.gls
-rm dissertation.pdf
+rm -f *.pdf
 
 echo "Done."
