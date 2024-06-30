@@ -1,6 +1,7 @@
 .vscode/
 
 # latex
+*.json
 *.acn
 *.aux
 *.glo

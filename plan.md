@@ -1,18 +1,15 @@
 ## Intruduction
-- [ ] Particle Physics, the Standard Model and Luminosity
-- [ ] The Cern Accelerator Complex
-- [ ] Accelerator Sequence (Emphasis on bunch creation for background on GS analysis: RF Buckets, Bunch Anatomy)
-- [ ] The LHC (Emphasis on experiment environment: Experiments, Beams, Frev, IP, BCID, Filling Scheme)
+- [x] Intro -- cross section, luminosity, event
+- [x] The Large Hadron Collider -- Emphasis on experiment environment IP
+  - [x] The Cern Accelerator Complex: Experiments, Filling Scheme)
+  - [x] Accelerator Sequence (Emphasis on bunch creation for background on GS analysis: RF Buckets, Bunch Anatomy)
 - [ ] The CMS Experiment
-  - [ ] Luminometers (mention)
+  - [ ] Luminometers
       - [ ] Anatomy
       - [ ] Position at LHC
       - [ ] Observables
   - [ ] DCCT and FBCT
   - [ ] Beam Position Monotoring (Mention for background on ROD implementation for DIAG scans)
-  - [ ] Other subsystems (briefly mention)
-    - [ ] Muon System
-    - [ ] Tracker
 
 ## Luminosity
 - [ ] Definition

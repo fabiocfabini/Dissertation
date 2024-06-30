@@ -1,5 +1,16 @@
 \documentclass[12pt,a4paper]{report}
 \usepackage{dissertation}
+\usepackage{blindtext}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{regexpatch}
+\usepackage{subcaption}
+
+% Make todo notes inline by default
+\makeatletter
+\xpatchcmd{\@todo}{\setkeys{todonotes}{#1}}{\setkeys{todonotes}{prepend,color=blue!20!white,inline,#1}}{}{}
+\makeatother
+
+
 \makeglossaries
 \makeindex
 
@@ -18,6 +29,9 @@
 % COMMANDS
 \newcommand{\ilum}{\ensuremath{\mathcal{L}}}
 \newcommand{\Ilum}{\ensuremath{L}}
+\newcommand*{\vv}[1]{\vec{\mkern0mu#1}}
+\newcommand{\note}[2][]{\todo[color=green!20!white,#1]{#2}}
+\newcommand{\fixme}[2][]{\todo[color=red!20!white,#1]{#2}}
 
 \bibpunct[,]{(}{)}{;}{a}{,}{,}
 \begin{document}
@@ -40,6 +54,7 @@
 \input{preamble/Abstract}
 
 \phantomsection
+\listoftodos
 \tableofcontents
 
 \cleardoublepage
@@ -74,7 +89,7 @@
 \input{chapters/PlannedSchedule}
 
 \renewcommand{\baselinestretch}{1}
-\bibliographystyle{plainnat}
+\bibliographystyle{abbrv}
 \bibliography{dissertation}
 \printindex
 
