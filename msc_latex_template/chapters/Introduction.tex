@@ -28,10 +28,19 @@ The \acrfull{lhc} at the \acrfull{cern} is a monumental particle accelerator \ci
 	\item Large Hadron Collider beauty (LHCb): A detector designed to study the differences between matter and antimatter by studying the decays particles like the "beauty" quark. LHCb is located at \acrshort{ip} 8.
 \end{itemize}
 
-The \acrshort{lhc} stands as the world's largest particle accelerator, capable of accelerating particles to a maximum energy capacity for proton-proton collisions of 14 TeV. It started operations in 2009 and has since been a cornerstone of particle physics research with its most notable achievement being the discovery of the Higgs boson in 2012 \cite{HiggsDiscovery}.
+The \acrshort{lhc} stands as the world's largest particle accelerator, capable of accelerating particles to a maximum energy capacity for proton-proton collisions of 14 TeV. It started operations in 2009 and has since been a cornerstone of particle physics research with its most notable achievement being the discovery of the Higgs boson in 2012 \cite{HiggsDiscovery}. Experiments at the \acrshort{lhc} are refered to as fills and given a unique number that is incremented every time new beam is injected into it.
 
-\todo{Discuss LHC schedule. Phase I, Run 2, Run 3, LST etc.}
+% Runs, correspond to <insert_here_run_definition> and are also given a unique number. Fill and runs lenghts can vary as well as the number of runs within a given fill.
 
+The \acrshort{lhc} operates according to a planned schedule, which is meticulously followed to ensure the success of its experimental programs and upgrades. The current schedule, as shown in \autoref{fig:lhc_schedule}, outlines the activities for Run 3, which is expected to continue until 2024.
+
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/assets/lhc_schedule.png}
+    \caption{The LHC schedule for Run 3, detailing the operational plan until 2024 (from \textit{Ref.} \cite{LHCSchedule}).}
+    \label{fig:lhc_schedule}
+\end{figure}
 
 \subsection{Accelerator Complex}
 \label{subsec:acc_complex}
@@ -57,7 +66,7 @@ In addition to protons, the \acrshort{lhc} also accelerates heavy ions, namely, 
 
 In the \acrshort{lhc}, particles are grouped into bunches, each containing approximately $10^{11}$ protons at the start of a physics fill. These bunches travel around a 27 km ring at nearly the speed of light, resulting in an orbiting frequency of approximately 11245.5 Hz. The RF cavities that accelerate the bunches operate with an oscillating electric field at a frequency of 400 MHz, creating a total of 35640 RF buckets, each spaced 2.5 ns apart. This arrangement is demanding, as it requires a high degree of resolution for any detector system aiming to obtain measurements per bucket. To alleviate this issue, buckets are grouped into sets of 10, with only the first bucket nominally filled with particles. This grouping increases the spacing between filled particle bunches to 25 ns. These bunch slots are referred to as bunch crossings and assigned a unique number called \acrfull{bcid}, ranging from 1 to 3564.
 
-In each \acrshort{lhc} fill, a set of definitions known as a filling scheme is established. This scheme provides information on parameters such as the bunch spacing, the number of filled bunches per beam, the number of collisions at each \acrshort{ip}, and the maximum number of consecutive bunches, also known as a train, among others. The filling scheme heavily influences the physics conditions of the fill, dictating the experimental environment and collision dynamics. Special fills may be requested to address specific issues or optimize certain experimental conditions in order to achieve the desired physics goals.
+In each \acrshort{lhc} fill, a set of definitions known as a filling scheme is established. This scheme provides information on parameters such as the bunch spacing, the number of filled bunches per beam, the number of collisions at each \acrshort{ip}, and the maximum number of consecutive bunches, also known as a train, among others. The filling scheme heavily influences the physics conditions of the fill, dictating the experimental environment and collision dynamics. Special fills and given identified by a counter. may be requested to address a unique number that is incremented every time  experimental conditions in order to achieve the desired physics goals.
 
 
 \subsection{Compact Muon Solenoid Experiment}
@@ -95,8 +104,10 @@ As stated in Section~\ref{subsec:lhc}, the \acrshort{cms} physics program encomp
 	\label{fig:cms_slice}
 \end{figure}
 
-The part of the detector closest to the beam pipe is the silicon tracker. This subsystem is composed of silicon sensors that track the paths of particles as they deposit charge while moving through it. Influenced by the CMS magnet, the curvature of these particles' paths provides crucial information for calculating their momentum, with more curved paths indicating lower momentum. The tracker can reconstruct the paths of electrons, hadrons, and high-energy muons. Immediately following the tracker are the \acrshort{cms} calorimeters: the Electromagnetic Calorimeter (ECAL) and the Hadronic Calorimeter (HCAL). These calorimeters measure the energy of particles by stopping them and measuring the energy they deposit. The ECAL, composed of lead tungstate crystals, detects electrons and photons by scintillating upon interaction with these particles. Photodetectors, designed to operate within the high magnetic field, are attached to the back of each crystal to detect the scintillation light and convert it to an electrical signal that is then amplified and analyzed. The HCAL measures the energy of hadrons, which are particles made of quarks and gluons, such as protons and neutrons. Additionally, it allows for the indirect measurement of non-interacting particles, such as neutrinos, through the missing transverse energy, which represents the imbalance in the transverse momentum of the particles in the event. The HCAL is constructed with alternating layers of absorber and fluorescent materials, producing rapid light pulses when particles pass through. It is organized into several sections: the barrel (HB), outer barrel (HO), endcap (HE), and forward (HF) sections. Muons, heavy cousins of electrons, are the particles most likely to pass through the calorimeters and reach the muon system. The muon system is the outermost layer of the \acrshort{cms} detector and is designed to detect muons. It is composed of three types of detectors: Drift Tubes (DT), Cathode Strip Chambers (CSC), and Resistive Plate Chambers (RPC). Detailed information on \acrshort{cms} subsystems can be found in \cite{CERN-LHCC-2020-004}.
+\newacronym{ecal}{ECAL}{Electromagnetic Calorimeter}
+\newacronym{hcal}{HCAL}{Hadronic Calorimeter}
 
+The part of the detector closest to the beam pipe is the silicon tracker. This subsystem is composed of silicon sensors that track the paths of particles as they deposit charge while moving through it. Influenced by the \acrshort{cms} magnet, the curvature of these particles' paths provides crucial information for calculating their momentum, with more curved paths indicating lower momentum. The tracker can reconstruct the paths of electrons, hadrons, and high-energy muons. Immediately following the tracker are the \acrshort{cms} calorimeters: the \acrfull{ecal} and the \acrfull{hcal}. These calorimeters measure the energy of particles by stopping them and measuring the energy they deposit. The \acrshort{ecal}, composed of lead tungstate crystals, detects electrons and photons by scintillating upon interaction with these particles. Photodetectors, designed to operate within the high magnetic field, are attached to the back of each crystal to detect the scintillation light and convert it to an electrical signal that is then amplified and analyzed. The \acrshort{hcal} measures the energy of hadrons, which are particles made of quarks and gluons, such as protons and neutrons. Additionally, it allows for the indirect measurement of non-interacting particles, such as neutrinos, through the missing transverse energy, which represents the imbalance in the transverse momentum of the particles in the event. The \acrshort{hcal} is constructed with alternating layers of absorber and fluorescent materials, producing rapid light pulses when particles pass through. It is organized into several sections: the barrel (HB), outer barrel (HO), endcap (HE), and forward (HF) sections. Muons, heavy cousins of electrons, are the particles most likely to pass through the calorimeters and reach the muon system. The muon system is the outermost layer of the \acrshort{cms} detector and is designed to detect muons. It is composed of three types of detectors: Drift Tubes (DT), Cathode Strip Chambers (CSC), and Resistive Plate Chambers (RPC). Detailed information on \acrshort{cms} subsystems can be found in \cite{CERN-LHCC-2020-004}.
 
 \section{Luminosity}
 \label{sec:luminosity}
@@ -172,11 +183,11 @@ Expanding the first integral:
 	\label{eq:sbil-machine-params-4}
 	\int G_x (\sigma_{x1}) G_x (\sigma_{x2}) dx = \frac{1}{2 \pi \sigma_{x1} \sigma_{x2}} \int e^{-\frac{x^2 \left( \sigma_{x1}^2 + \sigma_{x2}^2 \right)}{2 \sigma_{x1}^2 \sigma_{x2}^2}} dx
 \end{equation}
-Considering that
+and considering
 \begin{equation}
 	\int e^{-a x^2} dx = \sqrt{\frac{\pi}{2a}}
 \end{equation}
-equiation \ref{eq:sbil-machine-params-4} can be simplified to:
+equation \ref{eq:sbil-machine-params-4} can be simplified to:
 \begin{equation}
 	\label{eq:sbil-machine-params-5}
 	\int G_x (\sigma_{x1}) G_x (\sigma_{x2}) dx = \frac{1}{2 \pi \sigma_{x1} \sigma_{x2}} \sqrt {\frac{\pi \sigma_{x1}^2 \sigma_{x2}^2}{\sigma_{x1}^2 + \sigma_{x2}^2}} = \frac{1}{2 \sqrt{\pi} \sqrt{\sigma_{x1}^2 + \sigma_{x2}^2}}
@@ -191,7 +202,7 @@ where $\Sigma_X = \sqrt{2\pi} W_{eff} = \sqrt{2\pi} \sqrt{\sigma_{x1}^2 + \sigma
 \subsection{Luminosity Calibration}
 \label{subsec:luminosity_calibration}
 
-Luminosity detectors, also called luminometers, are located at the IPs of the LHC and measure the observable quantities of the collisions, converting them to rates of events. Due to the differences between the luminometers, the nature of their recorded observables and theit location at the CMS cavern, each is assumed to only capture a fraction of the total collisions. This bias in the luminometers is accounted for by a detector-specific calibration factor, the visible cross-section, $\sigma_{vis}$. Using equations \ref{eq:inst-luminosity} and \ref{eq:sbil-machine-params-3} this calibration can be expressed as:
+Luminosity detectors, also called luminometers, are located at the IPs of the LHC and measure the observable quantities of the collisions. Due to the differences between the luminometers, the nature of their recorded observables and their location at the \acrshort{cms} cavern, each is assumed to only capture a fraction of the total collisions. This bias in the luminometers is accounted for by a detector-specific calibration factor, the visible cross-section, $\sigma_{vis}$. Using equations \ref{eq:inst-luminosity} and \ref{eq:sbil-machine-params-3} this calibration can be expressed as:
 \begin{equation}
     \label{eq:vis-cross-section}
     \sigma_{vis} = \frac{2 \pi \Sigma_X \Sigma_Y R}{N_1 N_2 f_{rev}}
@@ -223,9 +234,6 @@ $\mu$ is the mean number of hits per bunch crossing, also known as pileup, and $
 \end{equation}
 The value of $p$ is here absorbed into the visible cross section \cite{Sirunyan:2759951} and does not need to be known beforehand.
 
-\subsubsection{Zero Starvation Effect}
-\label{subsubsec:zero-starvation}
-
 The zero counting method is not without its limitations. from \autoref{eq:zero-counting} it can be seen that the probability of recording zero hits decreases exponentially with increasing pileup, or similarly, increasing luminosity. This leads to a phenomenon known as zero starvation, where the probability of recording zero hits, $P_0$, becomes very small. This can lead to a situation where the luminometer underestimates the number of hits, and consequently, the luminosity.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -238,8 +246,18 @@ The zero counting method is not without its limitations. from \autoref{eq:zero-c
 \newacronym{bril}{BRIL}{Beam Radiation Instrumentation and Luminosity}
 \newacronym{plt}{PLT}{Pixel Luminosity Telescope}
 \newacronym{bcm1f}{BCM1F}{Fast Beam Conditions Monitor}
+\newacronym{4nb}{4NB}{4Nibble}
+\newacronym{ls}{LS}{Lumisection}
+\newacronym{bib}{BIB}{Beam-Induced Background}
 
-The \acrfull{bril} group is responsible for measuring luminosity at \acrshort{cms}. In addition to this primary task, the group monitors beam-induced backgrounds and dangerous beam loss events that may trigger a beam abort. They also manage beam timing, minimum bias triggers for data acquisition, and the monitoring and simulation of the radiation environment within the CMS cavern. Luminosity measurements are done with the use of dedicated detectors called luminometers. These specialized detectors, are capable of providing instantaneous luminosity measurements with a per bunch granularity. Figure~\ref{fig:cms_bril_detectors} shows the \acrshort{cms} location of all the systems  operated by the \acrshort{bril} group.
+
+The \acrfull{bril} group is responsible for measuring luminosity at \acrshort{cms}. In addition to this primary task, the group monitors \acrfull{bib} and dangerous beam loss events that may trigger a beam abort. They also manage beam timing, minimum bias triggers for data acquisition, and the monitoring and simulation of the radiation environment within the \acrshort{cms} cavern. Luminosity measurements are done with the use of dedicated detectors called luminometers.
+
+These specialized detectors, are capable of providing luminosity measurements with a per-bunch spacial-granularity. At CMS, the number of events measured by most of these systems are integrated over $2^{14}$ \acrshort{lhc} orbits which accounts for $\approx 1.458s$. This ammount of time is refered to as a \acrfull{4nb}. Another interval of integration often used during luminosity analysis is the \acrfull{ls} and corresponds to 16 \acrshort{4nb}.
+
+Since these detectors usually operate during long periods of time, four integers are used to select a particular operation period. These integers correspond to: a fill number, synchronized across all \acrshort{lhc} experiments; a run number, incremented every few hours and multiple times in a fill; a \acrshort{ls} number, unique to \acrshort{cms} and resetting every run; and a \acrshort{4nb}, also unique to \acrshort{cms} and resetting every lumisection. Most often than not, only a a pair of run and \acrshort{ls} numbers are used during analysis.
+
+Figure~\ref{fig:cms_bril_detectors} shows the \acrshort{cms} location of all the systems operated by the \acrshort{bril} group.
 
 \begin{figure}[h]
 	\centering
@@ -248,22 +266,24 @@ The \acrfull{bril} group is responsible for measuring luminosity at \acrshort{cm
 	\label{fig:cms_bril_detectors}
 \end{figure}
 
-\todo{Put the meaning of these paragraphs in bullet points}
-For a detector to be used as a luminometer, it must meet certain essential requirements. One of the most critical use cases for luminometers is their ability to provide online instantaneous luminosity measurements. This capability is crucial for the operation of the LHC and the goals of the CMS experiment. Additionally, having per-bunch granularity is important, as the calibration process for the luminometers heavily depends on the available statistics, as will be addressed in \autoref{sec:vdm_method}.
+For a detector to be used as a luminometer, it must meet certain essential requirements. One of the most critical use cases for luminometers is their ability to provide online instantaneous luminosity measurements. This capability is crucial as the for the operation of the LHC and the goals of the \acrshort{cms} experiment. Additionally, having per-bunch granularity is important, as the calibration process for the luminometers heavily depends on the available statistics, as will be addressed in \autoref{subsec:the_van_der_meer_scan_methodology}.
 
 Two other characteristics of paramount importance are the stability of the detector over long periods of time and the detector’s response to varying experimental conditions. The former is necessary to ensure that the luminometers can provide reliable measurements throughout the entire year of operations. A luminometer’s stability is typically affected by prolonged exposure to radiation, which decreases the detector’s efficiency and results in a decrease in its reported luminosity over the course of the year. In order to adjust the detector’s response, several adjustments are made to the detector’s operating conditions. It is important to understand that these corrective procedures do not improve the detectors performance but only normalize it to its original and optimal state.
 
-The latter characteristic concerns how the detector’s response changes under different experimental conditions. Initially, as we approach stable beam conditions in a fill, the pileup is at its highest. As the fill progresses, the natural decay of the beam population, commonly referred to as burn-off, causes the pileup to decrease. A luminometer’s response to these changes in pileup conditions must be as linear as possible with respect to luminosity. Additionally, changes in the filling scheme can affect the detector’s response, as some detectors are more sensitive to afterglow effects, where the signal from a previous bunch crossing is still present in the immediately adjacent bunch crossings. Similar to maintaining the detector's stability, the linearity of the luminometer’s response is preserved through corrective procedures, which will be discussed in \autoref{sec:integration}.
+The latter characteristic concerns how the detector’s response changes under different experimental conditions. Initially, as we approach stable beam conditions in a fill, the pileup is at its highest. As the fill progresses, the natural decay of the beam population, commonly referred to as burn-off, causes the pileup to decrease. A luminometer’s response to these changes in pileup conditions must be as linear as possible with respect to luminosity. Additionally, changes in the filling scheme can affect the detector’s response, as some detectors are more sensitive to afterglow effects, where the signal from a previous bunch crossing is still present in the immediately adjacent bunch crossings. Similar to maintaining the detector's stability, the linearity of the luminometer’s response is preserved through corrective procedures, which will be discussed in \autoref{subsec:extrapolation_of_vdM_calibration} and with focus on 2023 data in \autoref{ch:2023_luminosity_calibration}.
 
 The following subsections will describe the luminometers that were considered for this work, their positions at the LHC and how the luminosity is extracted from their observable measurements.
 
 \subsection{Hadron Forward}
+\newacronym{hf}{HF}{Hadron Forward}
+\newacronym{hfoc}{HFOC}{Hadron Forward Occupancy Count}
+\newacronym{hfet}{HFET}{Hadron Forward Transverse Energy}
 
-As stated in \autoref{subsec:cms}, the CMS HCAL is composed of several sections, one of which is the Hadron Forward (HF) calorimeter \cite{CMS:2012tda}. The HF is constructed from quartz scintillators embedded in steel absorbers and is located at $z \pm 11.2 m$ from the \acrshort{ip}, covering a pseudorapidity range of $3 < |\eta| < 5$. This range allows for better detection of missing transverse energy, which is crucial for probing the \acrshort{sm} and searching for new physics phenomena.
+As stated in \autoref{subsec:cms}, the \acrshort{cms} \acrshort{hcal} is composed of several sections, one of which is the \acrfull{hf} calorimeter \cite{CMS:2012tda}. The \acrshort{hf} is constructed from quartz scintillators embedded in steel absorbers and is located at $z \pm 11.2 m$ from the \acrshort{ip}, covering a pseudorapidity range of $3 < |\eta| < 5$. This range allows for better detection of missing transverse energy, which is crucial for probing the \acrshort{sm} and searching for new physics phenomena.
 
-The HF calorimeter uses Photomultiplier Tubes (PMTs) to collect Cherenkov light produced by particles passing through the quartz scintillators. A dedicated readout system collects these signals and converts them into luminosity measurements using two methods. The original HFOC method tracks the fraction of bunch crossings with no energy deposition above a threshold in specific HF towers (eta rings 31 and 32). The average number of these counts, $\mu$, is then converted to luminosity via the zero-counting method.
+The \acrshort{hf} calorimeter uses Photomultiplier Tubes (PMTs) to collect Cherenkov light produced by particles passing through the quartz scintillators. A dedicated readout system collects these signals and converts them into luminosity measurements using two methods. The original \acrshort{hfoc} method tracks the fraction of bunch crossings with no energy deposition above a threshold in specific \acrshort{hf} towers (eta rings 31 and 32). The average number of these counts, $\mu$, is then converted to luminosity via the zero-counting method.
 
-A second method, the HFET method, was implemented in 2016. It is based on the assumption that the measured transverse energy sum is proportional to the luminosity. This assumption is used to estimate the number of passing particles and convert it to luminosity. The HFET method is used in parallel with the HFOC method to cross-check the luminosity measurements.
+A second method, the \acrshort{hfet} method, was implemented in 2016. It is based on the assumption that the measured transverse energy sum is proportional to the luminosity. This assumption is used to estimate the number of passing particles and convert it to luminosity. The HFET method is used in parallel with the HFOC method to cross-check the luminosity measurements.
 
 \subsection{The Pixel Luminosity Telescope}
 \label{subsubsec:plt}
@@ -290,7 +310,7 @@ The zero counting method, described in \autoref{subsec:zero-counting}, is used t
 
 \subsection{The Fast Beam Conditions Monitor}
 
-The \acrfull{bcm1f} \cite{CMS-DP-2022-033} can measure not only the luminosity but also the machine induced background (MIB). It consists of 24 silicon sensors arranged in four half-circles, referred to as C-shapes, positioned 7.2 cm from the beam pipe and at a distance of 1.8 m on either side of the \acrshort{ip}. This placement allows for the separation of incoming and outgoing particles, corresponding to a flight time of 6.25 ns for particles traveling at relativistic speeds. This setup enables the discernment of signals originating from collisions, machine-induced background, and noise caused by the activation of surrounding material \cite{Zagozdzinska_2016}. \autoref{fig:bcm1f_real_life} shows the arrangement of one of the C-shapes.
+The \acrfull{bcm1f} \cite{CMS-DP-2022-033} can measure not only the luminosity but also the \acrshort{bib}. It consists of 24 silicon sensors arranged in four semi-circles, referred to as C-shapes, positioned 7.2 cm from the beam pipe and at a distance of 1.8 m on either side of the \acrshort{ip}. This placement allows for the separation of incoming and outgoing particles, corresponding to a flight time of 6.25 ns for particles traveling at relativistic speeds. This setup enables the discernment of signals originating from collisions, \acrshort{bib}, and noise caused by the activation of surrounding material \cite{Zagozdzinska_2016}. \autoref{fig:bcm1f_real_life} shows the arrangement of one of the C-shapes.
 
 \begin{figure}[h]
 \centering
@@ -299,13 +319,16 @@ The \acrfull{bcm1f} \cite{CMS-DP-2022-033} can measure not only the luminosity b
 \label{fig:bcm1f_real_life}
 \end{figure}
 
-A particle passing through the bulk of a silicon sensor will ionize the material, creating electron-hole pairs. These pairs are then separated by an electric field, generating a current pulse proportional to the energy of the particle. The signals detected in the sensors are read by two parallel systems. The older back-end system utilizes the Versa Module Europa (VME) standard and was the primary system during Run 2. The newer $\mu$TCA-based system began operation in Run 3 \cite{Karacheban:2294183}.
+\newacronym{vme}{VME}{Versa Module Europa}
+\newacronym{rhu}{RHU}{Realtime Histograming Unit}
 
-The VME back-end system discriminates signals using a constant threshold, and the hits are sent to a Realtime Histograming Unit (RHU). The hits integrated over 25 ns are then converted to luminosity using the zero-counting method. The $\mu$TCA system employs a more sophisticated approach, using a peak-finding algorithm that counts pulses based on the signal's derivative and amplitude. This method not only allows for more accurate distinction between hits and noise but also enables the detection of simultaneous hits by analyzing the pulse shape, resulting in a more linear response to luminosity. Both systems, BCM1F and BCM1FUTCA, are used as independent luminometers.
+A particle passing through the bulk of a silicon sensor will ionize the material, creating electron-hole pairs. These pairs are then separated by an electric field, generating a current pulse proportional to the energy of the particle. The signals detected in the sensors are read by two parallel systems. The older back-end system utilizes the \acrfull{vme} standard and was the primary system during Run 2. The newer $\mu$TCA-based system began operation in Run 3 \cite{Karacheban:2294183}.
+
+The \acrshort{vme} back-end system discriminates signals using a constant threshold, and the hits are sent to a \acrfull{rhu}. The hits per bunch are then converted to luminosity using the zero-counting method. The $\mu$TCA system employs a more sophisticated approach, using a peak-finding algorithm that counts pulses based on the signal's derivative and amplitude. This method not only allows for more accurate distinction between hits and noise but also enables the detection of simultaneous hits by analyzing the pulse shape. Both systems, BCM1F and BCM1FUTCA, are used as independent luminometers.
 
 \subsection{Pixel Cluster Counting}
 
-The CMS Pixel detector is also used as a luminometer. Upgraded for Phase I, it consists of four barrel layer, BPIX, and three disks, FPIX, on each side of the \acrshort{ip} at distances of 291, 396, and 516 mm, respectively. The BPIX is made up of a total of 79 million pixels in 1184 modules, while the FPIX contains 45 million pixels in 672 modules. The layouts of the two detectors, the original and the upgraded one, are compared in \autoref{fig:pcc_layout}. Further details on the desing and construction of the upgraded Pixel detector can be found in \cite{tracker2020cms}.
+The \acrshort{cms} Pixel detector is also used as a luminometer. Upgraded for Phase I, it consists of four barrel layer, BPIX, and three disks, FPIX, on each side of the \acrshort{ip} at distances of 291, 396, and 516 mm, respectively. The BPIX is made up of a total of 79 million pixels in 1184 modules, while the FPIX contains 45 million pixels in 672 modules. The layouts of the two detectors, the original and the upgraded one, are compared in \autoref{fig:pcc_layout}. Further details on the desing and construction of the upgraded Pixel detector can be found in \cite{tracker2020cms}.
 
 \begin{figure}[h]
 \centering
@@ -323,11 +346,12 @@ The Pixel Cluster Counting (PCC) method counts the mean number of clusters, a co
 
 from which the PCC calibration factor can be calculated as $\sigma_{\text{vis}} = \sigma_{\text{minBias}} \cdot \langle N_{\text{clusters} / \text{interaction}} \rangle$ where $\sigma_{\text{minBias}}$ is the proton-proton cross section for minimum bias events. The $\langle N_{\text{clusters}} \rangle$ is measured by averaging the number of clusters over 23 second intervals with a 0.1\% statistical uncertainty for orbit integrated luminosity.
 
-Due the large ammount of pixel systems, the PCC method has been shown to provide stable and linear luminosity measurements and was used as the primary luminometer for the CMS experiment in previous years \cite{Sirunyan:2759951}.
+Due the large ammount of pixel systems, the PCC method has been shown to provide stable and linear luminosity measurements and was used as the primary luminometer for the \acrshort{cms} experiment in previous years \cite{Sirunyan:2759951}. The measurements from this detector are only used during the offline analysis. 
 
 \subsection{Drift Tube}
+\label{subsec:dt}
 
-Located in the CMS muon system, the Drift Tube (DT) is a sub-system of the muon barrel (MB) that provides estimates the number of muon tracks passing through the detector. This estimation, done with the Barrel Muon Track Finder (BMTF) algorithm \cite{Triossi_2017}, is assumed to be proportional to the luminosity which allos for DT to be used as a luminometer. However, does not provide luminosity measurements with per bunch granularity, but rather every 23 seconds. This limitations makes measuring it's calibration factor, $\sigma_{\text{vis}}$, dependent on the other luminometers. However, due to its good stability and linearity, it is often calibrated to match other luminometers as a way to compare for stability and linearity.
+Located in the \acrshort{cms} muon system, the Drift Tube (DT) is a sub-system of the muon barrel (MB) that provides estimates the number of muon tracks passing through the detector. This estimation, done with the Barrel Muon Track Finder (BMTF) algorithm \cite{Triossi_2017}, is assumed to be proportional to the luminosity which allos for DT to be used as a luminometer. However, does not provide luminosity measurements with per bunch granularity, but rather \acrshort{ls}-integrated. This limitations makes measuring it's calibration factor, $\sigma_{\text{vis}}$, dependent on the other luminometers. However, due to its good stability and linearity, it is often calibrated to match other luminometers as a way to compare for stability and linearity.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% LUMINOMENTER: TO APPROACH AFTER KNOWING WHAT LUMINOISITY IS %%

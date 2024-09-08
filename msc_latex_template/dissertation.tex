@@ -4,6 +4,73 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{regexpatch}
 \usepackage{subcaption}
+\usepackage{listings}  % para utilizar blocos de texto verbatim no estilo 'listings'
+%paramerização mais vulgar dos blocos LISTING - GENERAL
+\lstset{
+	basicstyle=\scriptsize, %o tamanho das fontes que são usadas para o código
+	numbers=left, % onde colocar a numeração da linha
+	numberstyle=\tiny, %o tamanho das fontes que são usadas para a numeração da linha
+	numbersep=5pt, %distancia entre a numeração da linha e o codigo
+	breaklines=true, %define quebra automática de linha
+    frame=tB,  % caixa a volta do codigo
+	mathescape=true, %habilita o modo matemático
+	escapeinside={(*@}{@*)} % se escrever isto  aceita tudo o que esta dentro das marcas e nao altera
+}
+%
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.98,0.98,0.95}
+\lstset{%
+    language=Python,                     % Sets the language of the code
+    backgroundcolor=\color{backcolour},  % Background color of the code
+    commentstyle=\color{codegreen},      % Color of comments
+    keywordstyle=\color{magenta},        % Color of keywords
+    numberstyle=\tiny\color{codegray},   % Style of the line numbers
+    stringstyle=\color{codepurple},      % Style of strings
+    basicstyle=\footnotesize,            % Basic style for code
+    numbers=left,                        % Line numbers on the left
+    stepnumber=1,                        % Line numbering step
+    numbersep=5pt,                       % Space between line numbers and code
+    showspaces=false,                    % Do not show spaces
+    showstringspaces=false,              % Do not underline spaces in strings
+    showtabs=false,                      % Do not show tabs
+    frame=tb,                            % Adds a frame above and below the code
+    tabsize=2,                           % Default tab size
+    captionpos=none,                     % Disables captions
+    abovecaptionskip=0pt,                % Removes padding above captions
+    belowcaptionskip=0pt,                % Removes padding below captions
+    breaklines=true,                     % Enable automatic line breaking
+    breakatwhitespace=false,             % Break lines not only at whitespace
+    title=\lstname,                      % Show filename if \lstinputlisting is used
+    escapeinside={\#*}{*)},              % Allows LaTeX within code
+    inputencoding=utf8,                  % Encoding of the input file
+    extendedchars=true,                  % Allows usage of extended characters
+    literate=                            % Handles special characters
+        {á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ú}{{\'u}}1 {í}{{\'i}}1 {ó}{{\'o}}1 
+        {õ}{{\~o}}1 {ç}{{\c{c}}}1 {à}{{\`a}}1 {ê}{{\^e}}1 {â}{{\^a}}1 
+        {Ú}{{\'U}}1 {Í}{{\'I}}1
+}
+
+\lstdefinelanguage{Yaml}{
+  keywords={true,false,null,y,n},
+  keywordstyle=\color{blue}\bfseries,
+  basicstyle=\ttfamily,
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{gray}\ttfamily,
+  stringstyle=\color{brown},
+  morestring=[b]',
+  morestring=[b]",
+  literate=*{:}{{\textcolor{red}{:}}}1 % Colon highlighting
+           {,}{{\textcolor{red}{,}}}1 % Comma highlighting
+           {\{}{{\textcolor{red}{\{}}}1 % Left brace
+           {\}}{{\textcolor{red}{\}}}}1 % Right brace
+           {[}{{\textcolor{red}{[}}}1 % Left bracket
+           {]}{{\textcolor{red}{]}}}1 % Right bracket
+}
+
 
 % Make todo notes inline by default
 \makeatletter
@@ -74,34 +141,23 @@
 \cleardoublepage
 \pagenumbering{arabic}
 
-%-- Dissertation 
-\part{Introductory material}
-
 \input{chapters/Introduction}
 \input{chapters/StateOfTheArt}
 \input{chapters/ProblemAndChallenges}
 
-\part{Core of the Dissertation}
-
 \input{chapters/Contribution}
 \input{chapters/Applications}
 \input{chapters/ConclusionsAndFutureWork}
-\input{chapters/PlannedSchedule}
 
 \renewcommand{\baselinestretch}{1}
 \bibliographystyle{abbrv}
 \bibliography{dissertation}
 \printindex
 
-\appendix
-\renewcommand\chaptername{Appendix}
+% \appendix
+% \renewcommand\chaptername{Appendix}
 
-\part{Appendices}
-
-\input{appendices/SupportWork}
-\input{appendices/DetailsOfResults}
-\input{appendices/Listings}
-\input{appendices/Tooling}
+\input{appendices/main}
 
 \input{covers/BackCover}
 

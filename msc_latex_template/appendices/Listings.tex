@@ -1,2 +1,27 @@
-\chapter{Listings}
-	Should this be the case.
+\section{Listings}
+
+
+\lstinputlisting[
+    caption={Polling implementation in Merger. Once all the files to be merged are full the function stops blocking.},
+    label={lst:merger_polling}
+]{images/listings/merger.py}
+
+\lstinputlisting[
+    caption={Decorator function that registers the sanitizers associated with a specific corrector function.},
+    label={lst:register_sanitizer}
+]{images/listings/register_sanitizer.py}
+
+\lstinputlisting[
+    caption={Class decorator that aggregates all registered sanitizers into class attributes for subsequent validation.},
+    label={lst:collect_sanitizers}
+]{images/listings/collect_sanitizers.py}
+
+\lstinputlisting[
+    caption={Function implementing the validation logic. It uses the information set by \textit{register\_sanitizer} and collected by \textit{collect\_sanitizers}.},
+    label={lst:validate_sanitizers}
+]{images/listings/validate_sanitizers.py}
+
+\lstinputlisting[
+    caption={Function to validate \textit{iovtags} before uploading them into the database, preventing contamination.},
+    label={lst:validate_iovtag_data}
+]{images/listings/validate_iovtag_data.py}
