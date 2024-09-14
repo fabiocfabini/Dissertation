@@ -56,7 +56,7 @@ The results of the profiling are presented in \autoref{tab:profiling_results}, w
 
 \begin{table}[!htb]
 	\centering
-	\caption{Initial profiling results shown separately for the procedures in Stage I and combined for Stages II and III. The times correspond to an average of 50 runs where the full analysis pipeline was executed.}
+	\caption[Initial vdMFw profiling results]{Initial profiling results shown separately for the procedures in Stage I and combined for Stages II and III. The times correspond to an average of 50 runs where the full analysis pipeline was executed.}
 	\begin{tabular}{|l|c|c|}
 		\hline
 		\textbf{Procedure} & \textbf{Time [s]} & \textbf{\% of total program} \\
@@ -93,7 +93,7 @@ These changes led to the improved profiling results shown in \autoref{tab:profil
 
 \begin{table}[!htb]
 	\centering
-	\caption{Profiling results after implementing the optimizations in the analyser procedures. The results show significant improvements in both procedures. The bulk of the framework (Stages II and III) now accounts for 95\% of the total program execution time, and the overall program speedup was approximately 4 times.}
+	\caption[vdMfw profiling results after performance improvements]{Profiling results after implementing the optimizations in the analyser procedures. The results show significant improvements in both procedures. The bulk of the framework (Stages II and III) now accounts for 95\% of the total program execution time, and the overall program speedup was approximately 4 times.}
 	\begin{tabular}{|l|c|c|}
 		\hline
 		\textbf{Procedure} & \textbf{Time [s]} & \textbf{\% of total program} \\
@@ -165,7 +165,7 @@ The \textit{brilcalc} tool, part of the BRIL work suite, plays a critical role i
 \begin{figure}[!htb]
 	\centering
 	\makebox[\textwidth]{\includegraphics[width=0.7\paperwidth]{images/assets/normtag_iovtag.png}}
-	\caption{a) Example of a Normtag file specifying LHC periods for queries in brilws' database. Each period is defined by a run number and a range of valid lumisections for that run. b) Example of an Iovtag file corresponding to the HFET luminometer, specifying correction functions and payload arguments for each run number at the beginning of a fill.}
+	\caption[Illustration of iovtag and normtag file structure]{a) Example of a Normtag file specifying LHC periods for queries in brilws' database. Each period is defined by a run number and a range of valid lumisections for that run. b) Example of an Iovtag file corresponding to the HFET luminometer, specifying correction functions and payload arguments for each run number at the beginning of a fill.}
 	\label{fig:normtag_iovtag}
 \end{figure}
 
