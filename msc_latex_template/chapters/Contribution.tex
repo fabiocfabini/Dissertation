@@ -3,29 +3,29 @@
 
 \section{Analysis of vdM data}
 
-CMS's vdM scan program for was performed in June 2023 during LHC fill 8999. In this fill, there were 138 filled bunches per beam and a total of 136 colliding bunches at the CMS IP. The bunches were designed to be wider than usual ($\beta^{*} = 1920 cm$) and separated by $525 ns$ in order to minimize afterglow effects. In order to minimize the non-linearity of the luminometers the pileup significantly reduced from the average of 2023, $52$, to just $0.5$.
+CMS's vdM scan program was performed in June 2023 during LHC fill 8999. During this fill, there were 138 filled bunches per beam and a total of 136 colliding bunches at the CMS IP. The bunches were designed to be wider than usual ($\beta^{*} = 1920 cm$) and separated by $525 ns$ in order to minimize afterglow effects. In order to minimize non-linear effects, the pileup was significantly limited from the average during 2023, $52$, to just $0.5$.
 
 The LHC beam positions throughout the entire vdM program is shown in \autoref{fig:vdm_fill_program}.
 
 \begin{figure}[!htb]
 	\centering
 	\makebox[\textwidth]{\includegraphics[width=0.95\paperwidth]{images/assets/vdm_fill_program.pdf}}
-	\caption[Beam positions during fill 8999]{The Vertical (X) and horizontal (Y) positions of beam 1 and beam 2 are shown as a function of time during LHC fill 8999 as measured by the LHC beam position monitors. Each kind of scan pair, which contains two orthogonal scans, are delimited by the shaded regions and are labeled with the appropriate scan name. The cut out time periods correspond to when CMS was taking head-on data.}
+	\caption[Beam positions during fill 8999]{The vertical (X) and horizontal (Y) positions of beam 1 and beam 2 are shown as a function of time during LHC fill 8999 as measured by the LHC beam position monitors. Each kind of scan pair, which contains two orthogonal scans, is delimited by the shaded regions and labeled with the appropriate scan name. The cut out time periods correspond to when CMS was taking head-on data while the ATLAS vdM scan program was ongoing.}
 	\label{fig:vdm_fill_program}
 \end{figure}
 
-As can be seen in the previous figure, in the vdM scans, the beams start by being maximally separated by approximately $578 \mu m$. They are then scanned across each other in 25 steps of approximately $48 \mu m$, remaining in the same position for 30 seconds after each step. In the beam imaging scans, one of the beams is fixed in the nominal head-on position while the other is moved from approximately $-433 \mu m$ to $+433 \mu m$ in 19 steps of 46s.
+As can be seen in \autoref{fig:vdm_fill_program}, during the vdM scans, the beams start by being maximally separated by approximately $578 \mu m$. They are then scanned across each other in 25 steps of approximately $48 \mu m$, remaining in the same position for 30 seconds for each step. In the beam imaging scans, one of the beams is fixed in the nominal head-on position while the other is moved from approximately $-433 \mu m$ to $+433 \mu m$ in 19 steps of 46 seconds each.
 
-The measured luminometer rates are fitted as a function of the beam separations with the model described in \autoref{eq:double_gaussian_model} and the luminometer calibrations are determined from the fit parameters as detailed in \autoref{eq:calibration_from_fit_parameters}. The fits were performed on the data from the 6 vdM and the 2 im scan pairs and its associated cross-sections were measured. Figure \autoref{fig:no_Corr_xsec_results_HFET} shows the visible cross-section measurement results for the HFET luminometer with none of the corrections mentioned in \autoref{sec:experiment_conditions_and_corrective_procedures} having been applied.
+The measured luminometer rates are fitted as a function of the beam separation with the model described in \autoref{eq:double_gaussian_model} and the luminometer calibrations are determined from the fit parameters as detailed in \autoref{eq:calibration_from_fit_parameters}. The fits were performed on the data from the 6 vdM and the 2 im scan pairs and its associated cross-sections were measured. Figure \autoref{fig:no_Corr_xsec_results_HFET} shows the visible cross-section measurement results for the HFET luminometer with none of the corrections mentioned in \autoref{sec:experiment_conditions_and_corrective_procedures} having been applied.
 
 \begin{figure}[!htb]
 	\centering
 	\makebox[\textwidth]{\includegraphics[width=0.9\paperwidth]{images/assets/no_Corr_xsec_results_HFET.pdf}}
-	\caption[Initial HFET cross-section results]{Initial cross-section results obtained from uncorrected, raw data for the HFET luminometer as an example. On the left, the measured per-bunch visible cross-sections with his associated fit uncertainty are shown. The standard error on the mean (sem) is also depicted in the legend. The right image shows the measured visible cross-section taking the average over all 136 BCIDs for each vdM and im scan pairs. The error bars are defined by the root mean squared (rms) over all BCIDs. The central value and its uncertainty are determined by calculating the uncertainty-weighted average and  standard deviation over the scan pairs.}
+	\caption[Initial HFET cross-section results]{Initial cross-section results obtained from uncorrected, raw data for the HFET luminometer, as an example. On the left, the measured per-bunch visible cross-sections with their associated fit uncertainties are shown. The standard error on the mean (sem) is also depicted in the legend. The right image shows the measured visible cross-section taking the average over all 136 BCIDs for each vdM and im scan pairs. The error bars are defined by the root mean squared (rms) over all BCIDs. The central value and its uncertainty are determined by calculating the uncertainty-weighted average and  standard deviation over the scan pairs.}
 	\label{fig:no_Corr_xsec_results_HFET}
 \end{figure}
 
-There is a clearly visible increasing trend in the measured visible cross-sections as a function of time. Furthermore, this trend is visibel in all other luminometers, as can be seen in \autoref{fig:noCorr_luminometer_xsec}.
+There is a noticeable increasing trend in the measured visible cross-sections as a function of time. Furthermore, this trend is visible in all other luminometers, as can be seen in \autoref{fig:noCorr_luminometer_xsec}.
 
 \begin{figure}[!htb]
 	\centering
@@ -38,16 +38,16 @@ To increase the precision and accuracy of these measurements, a series of correc
 
 \subsection{Background estimation}
 
-Beam-induced and detector noise are both sources of background that are taken into account and subtracted from the raw detector rates. These sources have been estimated via two distinct methods:
+Beam-induced background and detector noise are both sources of background that are taken into account and subtracted from the raw detector rates. These sources have been estimated via two distinct methods:
 
 \begin{itemize}
-	\item \textbf{Estimation from super-separation scans}: The background contribution can be directly measured from super-separation scans (denoted as ss in \autoref{fig:vdm_fill_program}). In these scans the beams are separated in both planes in order to render the contributions from collision products negligible. This method is most commonly used during special fills, such as the vdM fill, since it consumes beam time.
-	\item \textbf{Estimation from non-colliding bunches}: An estimation for background can be done as long as there are non-colliding bunches in the filling scheme. This indirect method assumes the background in colliding bunches can be described as:
+	\item \textbf{Estimation from super-separation scans}: The background contribution can be directly measured from super-separation scans (denoted as ss in \autoref{fig:vdm_fill_program}). During these scans, the beams are separated in both planes in order to render the contributions from collision products negligible. This method is most commonly used during special fills, such as the vdM fill, since it consumes beam time.
+	\item \textbf{Estimation from non-colliding bunches}: An estimation for background can be done as long as there are filled but non-colliding bunches in the filling scheme. This indirect method assumes the background in colliding bunches can be described as:
 	\begin{equation}
 		\label{eq:bkg_eq1}
 		\mathrm{BKG} = 2 \cdot \mathrm{BIB} + \eta
 	\end{equation}
-	where the beam-induced background, $\mathrm{BIB}$, from the 2 beams in considered as well as the detector-specific noise, $\eta$. Furthermore, $\mathrm{BIB}$ is calculated like:
+	where the beam-induced background, $\mathrm{BIB}$, from the two beams is considered as well as the detector-specific noise, $\eta$. Furthermore, $\mathrm{BIB}$ is calculated like:
 	\begin{equation}
 		\label{eq:bkg_eq2}
 		\mathrm{BIB} = \mathrm{FNCR} + \eta.
@@ -56,21 +56,21 @@ Beam-induced and detector noise are both sources of background that are taken in
 	\begin{equation}
 		\mathrm{BKG} = 2 \cdot \mathrm{FNCR} + \mathrm{ENCR}.
 	\end{equation}
-	This method assumes the $\mathrm{BIB}$ contributions from both beams are the same, which may not be the same. Since no extra beam time is required, this method is the goto option for emittance scans during physics fills.
+	This method assumes the $\mathrm{BIB}$ contributions from both beams are the same, which may not be the case. Since super separation scans are never done under physics conditions, this method is the only option available for emittance scans during physics fills.
 \end{itemize}
 
-\autoref{fig:8999SuperSeparation_BCM1FUTCA} shows the BCM1FUTCA averaged measured rates for every BCID using the super-separation scan method. \autoref{tab:ss_summary} summarizes the measured background contributions for all the luminometers except for HFET since this has its background subtracted online.
+\autoref{fig:8999SuperSeparation_BCM1FUTCA} shows the BCM1FUTCA average of the measured rates for every BCID using the super-separation scan method. \autoref{tab:ss_summary} summarizes the measured background contributions for all the luminometers except for HFET since its background subtraction is applied online.
 
 \begin{figure}[!htb]
 	\centering
 	\makebox[\textwidth]{\includegraphics[width=0.8\paperwidth]{images/assets/8999SuperSeparation_BCM1FUTCA.pdf}}
-	\caption[BCM1FUTCA hits in super-separation scan]{BCM1FUTCA averaged measured events per BCID during super separation scans. The labels A, B, C, and D refer to the following: A represents the four filled non-colliding BCIDs at the beginning of the orbit, B represents the 136 colliding BCIDs (indicated by the top band), C corresponds to the empty BCIDs adjacent to filled BCIDs (around 0.5), and D represents the remaining empty non-colliding bunches.}
+	\caption[BCM1FUTCA hits in super-separation scan]{BCM1FUTCA average of the measured rates per BCID during super separation scans. The labels A, B, C, and D refer to the following: A represents the four filled non-colliding BCIDs at the beginning of the orbit, B represents the 136 colliding BCIDs (indicated by the top band), C corresponds to the empty BCIDs adjacent to filled BCIDs (around 0.5), and D represents the remaining empty non-colliding bunches.}
 	\label{fig:8999SuperSeparation_BCM1FUTCA}
 \end{figure}
 
 \begin{table}[!htb]
 	\centering
-	\caption[Background impact on calibration]{Summary of measured background per luminometer and its impact on the vdm calibration. The average is computed on the measured background for all the colliding bunches across all scans. The associated uncertainty is the standard error on the average.}
+	\caption[Background impact on calibration]{Summary of measured background per luminometer and its impact on the vdM calibration. The average is computed on the measured background for all the colliding bunches across all scans. The associated uncertainty is the standard error on the average.}
 	\begin{tabular}{lcccc}
 		\hline
 		Luminometer & Average [$\overline{\mu}$] & Uncertainty [$\overline{\mu}$] & \% to peak rate at vdM1 & Effect on $\sigma_{\mathrm{vis}}$ (\%) \\
@@ -88,27 +88,27 @@ Beam-induced and detector noise are both sources of background that are taken in
 \subsection{Beam current measurement}
 \label{subsec:beam_current_measurement}
 
-The beam currents play a crucial role in the determination of the visible cross-section serving as a normalization factor to the detector rates, as can be seen from \autoref{eq:calibration_from_fit_parameters}. In the LHC, they are measured by 2 dedicated devices: the Fast Beam Current Transformer (FBCT) \cite{Belohrad:1267400} and the Direct-Current Current Transformer (DCCT) \cite{Odier:1183400}.
+The beam currents play a crucial role in the determination of the visible cross-section, serving as a normalization factor to the detector rates, as can be seen from \autoref{eq:calibration_from_fit_parameters}. In the LHC, they are measured with two dedicated instruments: the Fast Beam Current Transformer (FBCT) \cite{Belohrad:1267400} and the Direct-Current Current Transformer (DCCT) \cite{Odier:1183400}.
 
 \begin{figure}[!htb]
 	\centering
 	\makebox[\textwidth]{\includegraphics[width=0.8\paperwidth]{images/assets/fbct_dcct_calibration.pdf}}
-	\caption[FBCT to DCCT calibration]{Value of the FBCT to DCCT calibration throught the vdM fill. The calibration factor is computed as the ratio between the orbit integrated FBCT measurements and that of DCCT.}
+	\caption[FBCT to DCCT calibration]{Value of the FBCT to DCCT calibration throught the vdM fill 8999. The calibration factor is computed as the ratio between the orbit-integrated FBCT measurements and that of DCCT.}
 	\label{fig:fbct_dcct_calibration}
 \end{figure}
 
-The FBCT system is able to provide current measurements with per-bunch granularity (every 25ns) while DCCT provides orbit integrated measurements with an associated uncertainty of 0.2\% \cite{Barschel:2649533}, achieving higher levels of accuracy compared to FBCT \cite{Gras:1379466}. This motivates a calibration procedure in which the orbit integrated FBCT measurements are normalized to the measurements from DCCT. \autoref{fig:fbct_dcct_calibration} shows the value of this calibration across the entire vdM fill for both beams.
+The FBCT system is able to provide current measurements with per-bunch granularity (every 25ns) while DCCT provides orbit integrated measurements with an associated uncertainty of 0.2\% \cite{Barschel:2649533}, achieving higher levels of accuracy compared to FBCT \cite{Gras:1379466}. This motivates a calibration procedure in which the orbit-integrated FBCT measurements are normalized to the measurements from DCCT. \autoref{fig:fbct_dcct_calibration} shows the value of this calibration across the entire vdM fill for both beams.
 
 The application of this correction is done only in the measurements that correspond to time intervals where a scan is being performed. The overall magnitude of this calibration is calculated as the average among all the scan steps. \autoref{fig:fbct_dcct_vdM1_calibration} shows the calibration used for the first vdM scan pair, vdM1.
 
 \begin{figure}[!htb]
 	\centering
 	\makebox[\textwidth]{\includegraphics[width=0.8\paperwidth]{images/assets/fbct_dcct_vdM1_calibration.pdf}}
-	\caption[FBCT calibration for scan pairs]{Calculated FBCT to DCCT calibration for the scan pairs of the first vdM scan in fill 8999. Every squared point corresponds to the ratio between the orbit integrated FBCT beam current and the measurement from DCCT for a given scan step (25 in total for a vdM scan). The average and error on the mean are shown in the legend.}
+	\caption[FBCT calibration for scan pairs]{Calculated FBCT to DCCT calibration for the scan pairs of the first vdM scan in fill 8999. Every squared point corresponds to the ratio between the orbit-integrated FBCT beam current and the measurement from DCCT for a given scan step (25 in total for a vdM scan). The average and error on the mean are shown in the legend.}
 	\label{fig:fbct_dcct_vdM1_calibration}
 \end{figure}
 
-Both systems are also susciptible to the measurement of unintended charges. As mentioned in \autoref{subsec:particle_beams_lhc} only one out of the 10 buckets in a bunch crossing are nominally filled. Spurious charges in the nominally empty buckets, refered to as ghost charges, have an impact on the DCCT measurements but do not have an effect on the per-bunch FBCT ones has this is impervious to charges below a given threshold. Another class of unwanted charges, called sattelites, emerge in the buckets adjacent to the nominally filled one. These extra charges affect the FBCT measurements. \autoref{fig:ghost_satellite_illustration} illustrates the position of these charges in relation to the main bunch. 
+Both systems are also susceptible to the presence of erratic charges. As mentioned in \autoref{subsec:particle_beams_lhc} only one out of the 10 RF buckets in a bunch crossing are nominally filled. Spurious charges in the nominally empty buckets, referred to as ``ghost charges", have an impact on the DCCT measurements but do not have an effect on the per-bunch FBCT measurement, since it is impervious to charges below a given threshold. Another class of additional charges, called ``satellites", emerge in the RF buckets adjacent to the nominally filled one. These extra charges affect the FBCT measurements. \autoref{fig:ghost_satellite_illustration} illustrates the position of these charges in relation to the main bunch. 
 
 \begin{figure}[!htb]
 	\centering
@@ -117,29 +117,29 @@ Both systems are also susciptible to the measurement of unintended charges. As m
 	\label{fig:ghost_satellite_illustration}
 \end{figure}
 
-The LHC Longitudinal Density Monitor (LDM) system, measures the fraction of ghost charges in the DCCT measurement, $f_{ghost}$, as well as the per-bunch satellite fractions in the FBCT measurements, $f_{sat_i}$. Combining the calibration procedure specified above with the corrections from these LDM measurements the total correction to the beam current can be expressed as:
+The LHC Longitudinal Density Monitor (LDM) system, measures the fraction of ghost charges in the DCCT measurement, $f_{ghost}$, as well as the per-bunch satellite fractions in the FBCT measurements, $f_{sat_i}$. Combining the calibration procedure specified above with the corrections from these LDM measurements, the total correction to the beam current can be expressed as:
 \begin{equation}
 	n_{i} = \frac{\mathrm{FBCT}_i \left( 1 - f_{sat_i} \right) \cdot \mathrm{DCCT} \left( 1 - f_{ghost} \right)}{\sum_i \mathrm{FBCT}_i}
 \end{equation}
 where $n_{i}$ is the corrected current for BCID $i$.
 
-These corrections have a similar effect on all luminometers. The FBCT to DCCT calibration decreasead the visible cross-section by 1.27\% with an associated uncertainty equal to that of the DCCT measurement, 0.2\%. The correction from ghost-satellite charges had a +0.1\% effect on the detector calibration and the full correction was taken as uncertainty.
+These corrections have a similar effect on all luminometers. The FBCT to DCCT calibration decreased the visible cross-section by 1.27\% with an associated uncertainty equal to that of the DCCT measurement, 0.2\%. The correction from ghost-satellite charges had a +0.1\% effect on the detector calibration and the full correction was taken as an uncertainty.
 
 \subsection{Length scale calibration}
 
-During a vdM scan pair the beams perform 25 steps in both planes. The movement of these beams is done with using a pair of steering dipoles located on either side of the IP. However, the scale of each step may differ from the nominally intended step length. For example, a nominal step of say 1 $\mu m$ will correspond to $0.99$ $\mu m$. This can be generalized for any nominal position, $x_{\mathrm{nom}}$, and the associated real measurement, $x_{\mathrm{real}}$, as:
+During a vdM scan pair, the beams perform 25 steps in both planes. The movement of these beams is controlled with a pair of steering dipoles located on either side of the IP. However, the scale of each step may differ from the nominally intended step length. For example, an intended nominal step of, say, 1 $\mu m$ may correspond to $0.99$ $\mu m$. This can be generalized for any nominal position, $x_{\mathrm{nom}}$, and the associated actual measurement, $x_{\mathrm{real}}$, as:
 \begin{equation}
 	x_{\mathrm{meas}} = \alpha x_{\mathrm{nom}}
 \end{equation}
 where $\alpha$ is called the length scale factor. This parameter encodes the first-order linear response of the magnets to the nominal input positions.
 
-This correction revolves around the comparison between the nominal and real beam spot positions. The beam spot is the overall distribution of the vertices reconstructed from tracks registered in the tracker and its position refers to the average of this position. The CMS tracker \cite{Sirunyan:2759951}, provides the real beam spot measurements, $\overline{x^{\mathrm{real}}_{\mathrm{BS}}}$,  and the nominal measurement is done with the assumption that the individual beam profiles are gaussian and factorizable. This way the beam spot is computed as the weighted average from the 2 beams as \cite{CMS-PAS-LUM-22-001}:
+This correction revolves around the comparison between the nominal and actual beam spot positions. The beam spot is the overall distribution of the vertices reconstructed from tracks registered in the tracking detector and its position refers to the average of this position. The CMS tracker \cite{Sirunyan:2759951}, provides the actual beam spot measurements, $\overline{x^{\mathrm{real}}_{\mathrm{BS}}}$, and the nominal measurement assumes that the individual beam profiles are Gaussian and factorizable. Therefore, the beam spot is computed as the weighted average from the two beams as \cite{CMS-PAS-LUM-22-001}:
 \begin{equation}
 	\overline{x^{\mathrm{nom}}_{\mathrm{BS}}} = \frac{\overline{x_1}\sigma_{x1}^{-2} + \overline{x_2}\sigma_{x2}^{-2}}{\sigma_{x1}^{-2} + \sigma_{x2}^{-2}},
 \end{equation}
 and similarly for the y direction. The $\overline{x^{\mathrm{nom}}_{\mathrm{BS}}}$ is the nominal beam spot position and $\overline{x_1}$ and $\overline{x_2}$ are the means of the beam profiles.
 
-In pratice, the length scale scans, as showed in \autoref{fig:vdm_fill_program}, are used. There are 2 versions of these scans: constant length scale scans and variable length scale scans. The cls scans are made up of 2 stages: forward stage, when the beams are moved from negative to positive positions, and the backward stage where the beams are moved from positive to negative positions. In this scan, the relative beam separations are kept contant. In the vls scans, we have a cycle repeating a total of five times. This cycle comprises the moments in which beam 1 is above beam 2 (Up), the beams are head-on and lastly when beam 1 is below beam 2 (Dn). \autoref{fig:length_scale_scans} shows the beam positions during the cls1 and vls1 scan pairs.
+In practice, the length scale scans, as shown in \autoref{fig:vdm_fill_program}, are used. There are two versions of these scans: constant length scale (cls) scans and variable length scale (vls) scans. The cls scans are made up of 2 stages: forward stage, when the beams are moved from negative to positive positions, and the backward stage, where the beams are moved from positive to negative positions. In the cls scan, the relative beam separations are kept constant. In the vls scans, we have a cycle repeating a total of five times. This cycle comprises the moments in which beam 1 is above beam 2 (Up), the beams are head-on and, lastly, when beam 1 is below beam 2 (Dn). \autoref{fig:length_scale_scans} shows the beam positions during the cls1 and vls1 scan pairs.
 
 \begin{figure}[!htb]
 	\centering
@@ -148,7 +148,7 @@ In pratice, the length scale scans, as showed in \autoref{fig:vdm_fill_program},
 	\label{fig:length_scale_scans}
 \end{figure}
 
-The difference between the real and nominal beam spot measurements are plotted as a function of the beam positions and a linear fit is performed to obtain the $\alpha$ factor. An example fit for the Up stage of the variable length scale scan is shown in \autoref{fig:fig:variable_length_scale_fit}. The overall length scale factor, was obtained from a weighted average on the factors obtained from every possible scan and scan stage. The results are summarised in \autoref{fig:length_scale_fit_summary}.
+The difference between the real and nominal beam spot measurements are plotted as a function of the beam positions and a linear fit is performed to obtain the $\alpha$ factor. An example fit for the Up stage of the variable length scale scan is shown in \autoref{fig:fig:variable_length_scale_fit}. The overall length scale factor was calculated from a weighted average on the factors obtained from every possible scan and scan stage. The results are summarised in \autoref{fig:length_scale_fit_summary}.
 
 \begin{figure}[!htb]
 	\centering
@@ -157,14 +157,14 @@ The difference between the real and nominal beam spot measurements are plotted a
 	\label{fig:fig:variable_length_scale_fit}
 \end{figure}
 
-As the backward stage of the constant length scale for the vertical plane yielded poor quality fit results, it was not included in the weighted average. However, in order to account for this in the associated uncertainty, a systematic uncertainty was added to the already $0.0011$ rms. This systematic was computed as the difference between the weighted average with and without including this faulty scan stage and has an absolute value of $0.0012$. This results in a total uncertainty, for the length scale factor in the y plane, of $\sqrt{0.0011^2 + 0.0012^2} \approx 0.0016$.
+As the backward stage of the constant length scale for the vertical plane yielded poor quality fit results, it was not included in the weighted average. However, in order to account for this in the associated uncertainty, a systematic uncertainty was added to the already-obtained $0.0011$ rms. This systematic was computed as the difference between the weighted average with and without this faulty scan stage and has an absolute value of $0.0012$. This results in a total uncertainty for the length scale factor in the y plane of $\sqrt{0.0011^2 + 0.0012^2} \approx 0.0016$.
 
-The final uncertainty is the quadrature sum of the uncertainties in both planes and is 0.2\%. The effect of this correction impacts equally all luminometers and resulted in a a decrease of the $\sigma_{\mathrm{vis}}$ of $0.9\%$.
+The final uncertainty is the quadrature sum of the uncertainties in both planes, 0.2\%. The effect of this correction impacts all luminometers equally and resulted in a a decrease of the $\sigma_{\mathrm{vis}}$ of $0.9\%$.
 
 \begin{figure}[h!]
 	\centering
 	\makebox[\textwidth]{\includegraphics[width=0.7\paperwidth]{images/assets/length_scale_fit_summary.png}}
-	\caption[Length scale calibration results]{Results of length scale calibration for the X (left) and Y (right) coordinates, using constant-separation length scale (cls) scans in the forward (fwd) and backward (bkw) directions, and variable-separation length scale (vls) scans (analysed as cls scans) for beam 1(2) scan with beam 2(1) (b2(b1)) being separated in the direction down (Dn) or up (Up) (from \textit{Ref.} \cite{CMS-DP-2024-068}). Length scale values are shown for fits whose reduced-$\chi^2$ is below 100 which was not the case for cls bkw scan in the Y plane.}
+	\caption[Length scale calibration results]{Results of the length scale calibration for the X (left) and Y (right) coordinates, using constant-separation length scale (cls) scans in the forward (fwd) and backward (bkw) directions, and variable-separation length scale (vls) scans (analysed as cls scans) for beam 1(2) scan with beam 2(1) (b2(b1)) being separated in the direction down (Dn) or up (Up) (from \textit{Ref.} \cite{CMS-DP-2024-068}). Length scale values are shown for fits whose reduced-$\chi^2$ is below 100, which was not the case for cls bkw scan in the Y plane.}
 	\label{fig:length_scale_fit_summary}
 \end{figure}
 
