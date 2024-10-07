@@ -14,6 +14,7 @@ analysis_8999_full_bpm.csv
 *.log
 *.lot
 *.out
+!*assets/*.pdf
 *.pdf
 *.toc
 *.bbl
