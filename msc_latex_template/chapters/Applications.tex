@@ -4,12 +4,12 @@ The analysis of vdM data, along with the application of stability and linearity 
 
 The vdM Framework \cite{VdMFramework} is employed to execute all the corrections and fits detailed in \autoref{ch:2023_luminosity_calibration}. This tool is vital for managing the complex data processing required during the vdM scans, enabling precise calibration and adjustment of the luminometers. My contributions to the development and enhancement of this framework are discussed in \autoref{sec:the_vdM_framework}.
 
-For integration corrections, the BRIL work suite (b' database. To query this database, and obtain the corrected datarilws) \cite{xie_bril} is utilized. This suite takes on the critical task of applying the final layer of luminosity corrections, as well as distributing the results to other CMS groups. The specific program responsible for these corrections is called brilcalc. The inner workings, limitations, developed alternatives, and my contributions to the improvement of this program are detailed in \autoref{sec:the_bril_work_suite}.
+For integration corrections, the BRIL work suite, \textit{brilws}) \cite{xie_bril}, is utilized. This software suite takes on the critical task of applying the final layer of luminosity corrections, as well as making the results available to other CMS groups. The specific program responsible for these corrections is called \textit{brilcalc}. The inner workings, limitations, developed alternatives, and my contributions to the improvement of this program are detailed in \autoref{sec:the_bril_work_suite}.
 
 \section{The vdM Framework}
 \label{sec:the_vdM_framework}
 
-The vdM Framework (vdMFw) is the analysis software used by CMS to perform luminosity calibration measurements for all luminometers with per-bunch granularity. First commissioned in 2015, it has been continuously improved in line with the collaboration’s growing understanding of the systematics discussed in \autoref{ch:2023_luminosity_calibration}. Today, it serves as the primary framework for analyzing vdM scans, applying data corrections, and tracking luminometer operational conditions through emittance scan analysis throughout the year.
+The vdM Framework (vdMFw) is the analysis software used by CMS to perform luminosity calibration measurements for all luminometers with per-bunch granularity. First commissioned in 2015, it has been continuously improved in line with the collaboration’s growing understanding of the systematic uncertainties discussed in \autoref{ch:2023_luminosity_calibration}. Today, it serves as the primary framework for analyzing vdM scans, applying data corrections, and tracking luminometer operational conditions through emittance scan analysis throughout the year.
 
 \subsection{Flow of the Analysis}
 
@@ -26,7 +26,7 @@ The data is provided in Hierarchical Data Format 5 (HDF5) \cite{koranne2011hiera
 \begin{itemize}
 	\item \textbf{Scan data}: Includes beam separation information, which is used to extract the beginning and end timestamps of each scan step.
 	\item \textbf{Beam data}: Contains the beam currents, both per-orbit and per-bunch, saved in the beam table of the input file.
-	\item \textbf{Luminometer data}: Stores the counts for every luminometer in operation during the time period associated with the input file.
+	\item \textbf{Luminometer data}: Stores the rates for every luminometer in operation during the time period associated with the input file.
 \end{itemize}
 The user can specify the following input parameters:
 \begin{itemize}
@@ -37,11 +37,11 @@ The user can specify the following input parameters:
 \end{itemize}
 Additionally, there is a user configuration file where further details can be adjusted.
 
-The first stage of the analysis involves the preparation of the individual inputs that go into the fitting procedure, such as the beam separations and the rates normalized to the beam currents. The Scan Parser extracts the timestamps associated with each scan step and feeds them into the subsequent blocks. The Beam Analyser identifies the colliding bunches and computes the beam currents. At this stage, the beam current corrections explained in \autoref{subsec:beam_current_measurement} are applied. The colliding bunch indices are then passed to the Rates Analyser, where the luminometer rates are calculated.
+The first stage of the analysis involves the preparation of the individual inputs that go into the fitting procedure, such as the beam separations and the rates normalized to the beam currents. The \textit{Scan Parser} extracts the timestamps associated with each scan step and feeds them into the subsequent blocks. The \textit{Beam Analyser} identifies the colliding bunches and computes the beam currents. At this stage, the beam current corrections explained in \autoref{subsec:beam_current_measurement} are applied. The colliding bunch indices are then passed to the \textit{Rates Analyser}, where the luminometer rates are calculated.
 
 The data processed in the previous stage is passed to Stage II. This stage consolidates all the pieces of information into a structured format to facilitate the application of any corrections and fits that follow.
 
-Lastly, Stage III applies all the requested corrective procedures, and finishes in a fit to the corrected data, which provides the fit parameters used in calculating the detector calibration constants. While all corrections are done sequentially, some require outputs from previous corrections, hence the backward connector from the results to the beginning of this stage. The analysis concludes with all the results, both intermediate and final, being saved to files for later inspection.
+Lastly, Stage III applies all the requested corrective procedures, and culminates in a fit to the corrected data, which provides the fit parameters used in calculating the detector calibration constants. While all corrections are done sequentially, some require outputs from previous corrections, hence the backward connector from the results to the beginning of this stage. The analysis concludes with all the results, both intermediate and final, being saved to files for later inspection.
 
 \subsection{Input/Output bottleneck}
 \label{subsec:io_bottleneck}
@@ -123,7 +123,7 @@ An important aspect of analyzing LHC scans is the ability to process data immedi
 The workflow, illustrated in \autoref{fig:online_analysis_workflow}, begins with the Listener stage. This component constantly queries the xDAQ data acquisition system \cite{Brigljevic:845273} for the \textit{Active} variable, which is set to true while a scan is ongoing at the CMS IP. During these periods, two independent processes are at work:
 
 \begin{itemize}
-	\item \textbf{BRIL Data Acquisition System (BRILDAQ)}: BRILDAQ, built on top of xDAQ, is the data transfer system used by all BRIL systems. It is configured to save extra HDF5 files to a specific destination while \textit{Active} is set to true. These files are smaller and each contains data for a portion of the entire scan.
+	\item \textbf{BRIL Data Acquisition System (BRILDAQ)}: BRILDAQ, built on top of xDAQ, is the data acquisition and processing system used by all BRIL systems. It is configured to save extra HDF5 files to a specific destination while \textit{Active} is set to true. These files are smaller and each contains data for a portion of the entire scan.
 	\item \textbf{Scan Listener}: The Listener, a separate process also built using xDAQ, continuously monitors the \textit{Active} variable and records the timestamps corresponding to the beginning and end of a scan (when \textit{Active} changes from false to true and from true to false).
 \end{itemize}
 
@@ -133,9 +133,9 @@ The Watcher is a filesystem event manager designed to trigger whenever a new fil
 
 \subsection{Improving Wait Time in Merger}
 
-The fixed waiting time in the Merger block is suboptimal. If the wait time is too short, it could lead to I/O problems, whereas if it is too long, it could delay the ability to repeat a scan, which is particularly critical during vdM fills.
+The fixed waiting time in the Merger block is sub optimal. If the wait time is too short, it could lead to I/O problems, whereas if it is too long, it could delay the ability to repeat a scan, which is particularly critical during vdM fills.
 
-To address this, an alternative approach was introduced in the Merger step that continuously polls the intermediate HDF5 files to check if they have been closed. This was implemented using the \textit{lsof} Linux utility, which provides a convenient API to determine which files are open by which processes. The implementation of this polling mechanism can be seen in \autoref{lst:merger_polling}.
+To address this, an alternative approach was introduced in the Merger step that continuously polls the intermediate HDF5 files to check if they have been closed. This was implemented using the \textit{lsof} Linux utility, which provides a convenient API to identify files that are open by a specific process. The implementation of this polling mechanism can be seen in \autoref{lst:merger_polling}.
 
 During the 2024 vdM program, which started on May 16th, the time spent waiting for the files to close for all vdM and im scans was significantly shorter than the fixed 10-minute interval, as shown in \autoref{tab:time_waiting_2024}.
 
@@ -152,24 +152,24 @@ During the 2024 vdM program, which started on May 16th, the time spent waiting f
 	\label{tab:time_waiting_2024}
 \end{table}
 
-Being the most time consuming stages of this workflow the wait time in the Merger and running the vdMFw, these improvements allow for a feedback time of approximately 1 min after a particular scan has finished, a significant improvement over the 10+ minutes it used to take previously.
+Since the wait time in the Merger and running the vdMFw were the most time consuming stages of this workflow, these improvements now allow for a feedback time of approximately 1 min after a particular scan has finished; a significant improvement over the 10+ minutes it used to take previously.
  
 
 \section{The BRIL Work Suite}
 \label{sec:the_bril_work_suite}
 
-The \textit{brilcalc} tool, part of the BRIL work suite, plays a critical role in providing other CMS groups with access to the most accurate and up-to-date luminosity data from BRIL. This section will first explain how \textit{brilcalc} operates, including the necessary special input files, before discussing the enhancements made to its usability and maintenance. Finally, a highly requested alternative to \textit{brilcalc} will be introduced, along with an analysis of its advantages and disadvantages.
+The \textit{brilcalc} tool, part of the BRIL work suite, plays a critical role in providing other CMS groups with access to the most accurate and up-to-date luminosity data. This section will first explain how \textit{brilcalc} operates, including the necessary special input files, before discussing the enhancements made to its usability and maintenance. Finally, a highly requested alternative to \textit{brilcalc} will be introduced, along with an analysis of its advantages and disadvantages.
 
 \subsection{Normtags and Iovtags}
 
 \begin{figure}[!htb]
 	\centering
 	\makebox[\textwidth]{\includegraphics[width=0.7\paperwidth]{images/assets/normtag_iovtag.png}}
-	\caption[Illustration of iovtag and normtag file structure]{a) Example of a Normtag file specifying LHC periods for queries in brilws' database. Each period is defined by a run number and a range of valid lumisections for that run. b) Example of an Iovtag file corresponding to the HFET luminometer, specifying correction functions and payload arguments for each run number at the beginning of a fill.}
+	\caption[Illustration of iovtag and normtag file structure]{a) Example of a Normtag file specifying LHC periods for queries in the brilws' database. Each period is defined by a run number and a range of valid lumisections for that run. b) Example of an Iovtag file corresponding to the HFET luminometer, specifying correction functions and payload arguments for each run number at the beginning of a fill.}
 	\label{fig:normtag_iovtag}
 \end{figure}
 
-Given the high data demands from both BRIL and other CMS groups, \textit{brilcalc} needs to efficiently retrieve luminosity results for any requested period. To meet this requirement, data initially stored in HDF5 files is loaded into the brilws database. \textit{Brilcalc} relies on two specific input files for querying the database: a \textit{normtag} and an \textit{iovtag} file. The \textit{normtag} file defines the LHC periods to be queried, while the \textit{iovtag} file specifies how to apply corrections to the data from those periods. The structure of these files is illustrated in \autoref{fig:normtag_iovtag}.
+Given the high data demands from both BRIL and other CMS groups, \textit{brilcalc} needs to efficiently retrieve luminosity results for any requested period. To meet this requirement, data stored in HDF5 files is loaded into the brilws database. \textit{Brilcalc} relies on two specific input files for querying the database: a \textit{normtag} and an \textit{iovtag} file. The \textit{normtag} file defines the LHC periods to be queried, while the \textit{iovtag} file specifies how to apply corrections to the data from those periods. The structure of these files is illustrated in \autoref{fig:normtag_iovtag}.
 
 To interpret these files:
 \begin{itemize}
@@ -198,6 +198,7 @@ Another significant problem is the lack of thorough validation for iovtags submi
 The software responsible for applying corrections specified by \textit{iovtags} is built around a Python class containing various methods for implementing different types of luminosity corrections. For each correction, the specific method to be called is determined by the \textit{func} parameter within the \textit{iovtag}, and the method uses the corresponding \textit{payload} to compute the corrected luminosity. Below is a simplified version of the existing code:
 
 \begin{lstlisting}
+import numpy as np
 class LuminosityCorrector:
   def poly1d(self, database_input, payload):
     coefs_array = np.fromstring(payload["coefs"], dtype=np.float, sep=',')
@@ -210,7 +211,7 @@ class LuminosityCorrector:
     return ncol * np.poly1d(rates / ncol, coefs_array[::-1])
 \end{lstlisting}
 
-The first enhancement to the iovtag workflow was to introduce a new set of payload parameters. A new function, \textit{poly1d2}, where "2" denotes version 2, was implemented as follows:
+The first enhancement to the iovtag workflow was to introduce a new set of payload parameters. A new function, \textit{poly1d2}, where ``2" denotes version 2, was implemented as follows:
 
 \begin{lstlisting}
 def poly1d2(self, database_input, payload):
@@ -222,7 +223,7 @@ def poly1d2(self, database_input, payload):
   return payload["constant"] + lumi - payload["alpha"] * lumi**2
 \end{lstlisting}
 
-This alternative implementation provides several advantages:
+
 
 % \begin{itemize}
 %     \item When using \textit{poly1d2}, the payload values become transparent, allowing anyone with access to the \textit{iovtag} to see the individual components rather than just the final coefficients from \autoref{eq:brilcalc_poly1d}. This is demonstrated in the following example:
@@ -260,7 +261,7 @@ This alternative implementation offers several advantages. Firstly, when using \
         constant: 0.0
 \end{lstlisting}
 
-This new format simplifies comparisons between different versions of \textit{iovtags} for the same system, as only the \textit{comments} and \textit{payload} values differ, whereas in the previous format, users could only speculate about the reasons behind differences in coefficients. Moreover, the payload arguments effectively document the \textit{iovtag}, reducing reliance on comments, which can often be incorrect or outdated. This self-documentation makes \textit{iovtags} more robust over time, embedding essential details directly within the parameters themselves. Additionally, including the calculation components directly within the \textit{iovtag} centralizes the code, reducing the risk of errors when applying the formula described in \autoref{eq:brilcalc_poly1d}.
+This new format simplifies comparisons between different versions of \textit{iovtags} for the same system, as only the \textit{comments} and \textit{payload} values differ, whereas in the previous format, users could only speculate about the reasons behind differences in coefficients. Moreover, the payload arguments effectively document the \textit{iovtag}, reducing reliance on comments, which can often be incorrect or outdated. This self-documentation makes \textit{iovtags} more robust, embedding essential details directly within the parameters themselves. Additionally, including the calculation components directly within the \textit{iovtag} centralizes the code, reducing the risk of errors when applying the formula described in \autoref{eq:brilcalc_poly1d}.
 
 Although this new approach improves the readability of \textit{iovtags}, it does not fully address the lack of stable, up-to-date documentation for the parameters of each method within the corrector class, nor does it validate \textit{iovtags} upon upload. To address both issues while maintaining tight coupling with the source code, Python decorators were employed \cite{pep318}.
 
@@ -302,9 +303,9 @@ def another_method(self, database_input, payload):
 
 In the implementation of this decorator (see \autoref{lst:register_sanitizer}), the attributes \textit{\_required\_params} and \textit{\_validators} are added to the function objects to differentiate them from other class attributes. A class decorator named \textit{collect\_sanitizers} is used as a metaclass \cite{pep3115}, which gathers all registered sanitizers into class attributes upon loading, as illustrated in \autoref{lst:collect_sanitizers}.
 
-This setup allows the sanitizers to be used not only on already loaded iovtags but also on those requested for upload. The \textit{validate\_iovtag\_data} function, shown in \autoref{lst:validate_iovtag_data}, implements the validation logic and is called each time a new iovtag is to be uploaded.
+This setup allows the sanitizers to be used, not only on already loaded iovtags, but also on those requested for upload. The \textit{validate\_iovtag\_data} function, shown in \autoref{lst:validate_iovtag_data}, implements the validation logic and is called each time a new iovtag is to be uploaded.
 
-All these modifications allow the users of brilws to be more certain of the contents of the \textit{iovtags} they use as well as prevents poluting the database with erroneous correctors.
+All these modifications allow the users of \textit{brilws} to be more certain of the contents of the \textit{iovtags} they use as well as preventing polluting the database with erroneous correctors.
 
 
 % \subsection{An alternative to brilcalc}
@@ -327,12 +328,12 @@ All these modifications allow the users of brilws to be more certain of the cont
 
 \subsection{An Alternative to brilcalc}
 
-One of the most technically challenging aspects of luminosity analysis is managing the different versions of data. Any experimental effect not addressed during operations must be corrected in offline analysis, a process commonly referred to as reprocessing. Each reprocessing step takes as input a specific version of the HDF5 data for a given system or set of systems and applies corrections for one or more systematic effects, resulting in a new set of HDF5 files with the added corrections.
+One of the most technically challenging aspects of luminosity analysis is managing the different versions of data. Any experimental effect not addressed during operations must be corrected in offline analysis, a process commonly referred to as reprocessing. Each reprocessing step takes as input a specific version of the HDF5 data for a given system, or set of systems, and applies corrections for one or more systematic effects, resulting in a new set of HDF5 files with the added corrections.
 
-Ideally, each new set of HDF5 files would be thoroughly checked to ensure that the corrections were properly applied. However, verifying the results often required that the files first be uploaded to the brilws database, which not only risked contaminating the database with incorrect data but also unnecessarily increased the number of data versions stored. Consequently, there was a high demand for an alternative tool capable of producing the same outputs as \textit{brilcalc} directly from HDF5 files without the need for database integration.
+Ideally, each new set of HDF5 files would be thoroughly checked to ensure that the corrections were properly applied. However, verifying the results required that the files first be uploaded to the \textit{brilws} database, which not only risked contaminating the database with incorrect data but also unnecessarily increased the number of data versions stored. Consequently, there was a high demand for an alternative tool capable of producing the same output as \textit{brilcalc} directly from HDF5 files without the need for database integration.
 
-The proposed software solution, while separate from brilws, was designed to be compatible with the brilws workflow. It requires users to provide a \textit{normtag} file and specify the location of the HDF5 files to be analyzed. The \textit{iovtags} referenced in the \textit{normtag} must exist on disk but do not need to be loaded into any database. The final output of this tool matches the format produced by \textit{brilcalc}, enabling rigorous testing of any reprocessing results before deciding to share the data with the rest of the CMS.
+The proposed software solution, while separate from \textit{brilws}, was designed to be compatible with the \textit{brilws} workflow. It requires users to provide a \textit{normtag} file and specify the location of the HDF5 files to be analyzed. The \textit{iovtags} referenced in the \textit{normtag} must exist on disk but do not need to be loaded into any database. The final output of this tool matches the format produced by \textit{brilcalc}, enabling rigorous testing of any reprocessing results before deciding to share the data with the rest of the CMS.
 
-Although both tools produce the same output, each has distinct advantages. The alternative tool provides absolute certainty regarding the version of the data being analyzed since users must specify the exact path to the data files. However, this alternative is significantly slower than the brilws implementation because reading data directly from disk is much slower than querying a database. Despite this slower speed, it is still fast enough to allow multiple iterations of analysis, making it particularly useful for 2023, where the stability and non-linearity corrections for the BCM1F system benefited greatly from this approach, as multiple reprocessing steps were required.
+Although both tools produce the same output, each has distinct advantages. The alternative tool provides absolute certainty regarding the version of the data being analyzed since users must specify the exact path to the data files. However, this alternative is significantly slower than the \textit{brilws} implementation, because reading data directly from disk is much slower than querying a database. Despite this slower speed, it is still fast enough to allow multiple iterations of analysis.  This made it particularly useful for 2023, where the stability and non-linearity corrections for the BCM1F system benefited greatly from this approach, as multiple reprocessing steps were required.
 
 In conclusion, while this alternative tool proves invaluable for conducting detailed analyses, \textit{brilcalc} remains the preferred option for production-level results, offering a more streamlined and faster approach once the data is finalized.
