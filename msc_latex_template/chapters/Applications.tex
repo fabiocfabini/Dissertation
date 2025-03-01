@@ -4,7 +4,7 @@ The analysis of vdM data, along with the application of stability and linearity 
 
 The vdM Framework \cite{VdMFramework} is employed to execute all the corrections and fits detailed in \autoref{ch:2023_luminosity_calibration}. This tool is vital for managing the complex data processing required during the vdM scans, enabling precise calibration and adjustment of the luminometers. My contributions to the development and enhancement of this framework are discussed in \autoref{sec:the_vdM_framework}.
 
-For integration corrections, the BRIL work suite, \textit{brilws}) \cite{xie_bril}, is utilized. This software suite takes on the critical task of applying the final layer of luminosity corrections, as well as making the results available to other CMS groups. The specific program responsible for these corrections is called \textit{brilcalc}. The inner workings, limitations, developed alternatives, and my contributions to the improvement of this program are detailed in \autoref{sec:the_bril_work_suite}.
+For integration corrections, the BRIL work suite, (\textit{brilws}) \cite{xie_bril}, is utilized. This software suite takes on the critical task of applying the final layer of luminosity corrections, as well as making the results available to other CMS groups. The specific program responsible for these corrections is called \textit{brilcalc}. The inner workings, limitations, developed alternatives, and my contributions to the improvement of this program are detailed in \autoref{sec:the_bril_work_suite}.
 
 \section{The vdM Framework}
 \label{sec:the_vdM_framework}
@@ -50,7 +50,8 @@ The vdMFw is executed multiple times throughout the year, particularly during em
 
 To identify the primary bottlenecks within the framework, an initial profiling was conducted on input HDF5 files corresponding to vdM scans. These files were chosen because they undergo the complete correction pipeline, providing a comprehensive diagnosis of performance issues.
 
-The profiling was performed on a system with the following specifications: x86\_64 architecture, equipped with 32 CPUs, each with 2 threads per core, distributed across 8 cores per socket, and 2 sockets in total. The CPUs operate at a base frequency of 1.0 GHz, with a maximum frequency of 3.5 GHz, supported by 64 GB of RAM and an L3 cache of 11 MB.
+The profiling was performed on a system with the following specifications: x86\_64 architecture, equipped with 32 CPUs\footnote{The Central Processing Unit (CPU) is the primary component of a computer that performs most of the processing inside a computer. It executes instructions from software programs by performing arithmetic, logic, control, and input/output operations.}
+, each with 2 threads per core, distributed across 8 cores per socket, and 2 sockets in total. The CPUs operate at a base frequency of 1.0 GHz, with a maximum frequency of 3.5 GHz, supported by 64 GB of RAM and an L3 cache of 11 MB.
 
 The results of the profiling are presented in \autoref{tab:profiling_results}, which highlights the time spent in each stage of the analysis process.
 

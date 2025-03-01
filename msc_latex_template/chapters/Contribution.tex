@@ -3,7 +3,7 @@
 
 \section{Analysis of vdM data}
 
-CMS's vdM scan program was performed in June 2023 during LHC fill 8999. During this fill, there were 138 filled bunches per beam and a total of 136 colliding bunches at the CMS IP. The bunches were designed to be wider than usual ($\beta^{*} = 1920 cm$) and separated by $525 ns$ in order to minimize afterglow effects. In order to minimize non-linear effects, the pileup was significantly limited from the average during 2023, $52$, to just $0.5$.
+CMS's vdM scan program was performed in June 2023 during LHC fill 8999. During this fill, there were 138 filled bunches per beam and a total of 136 colliding bunches at the CMS IP. The bunches were designed to be wider than usual ($\beta^{*} = 1920$cm) and separated by $525$ns in order to minimize afterglow effects. In order to minimize non-linear effects, the pileup was significantly limited from the average during 2023, $52$, to just $0.5$.
 
 The LHC beam positions throughout the entire vdM program is shown in \autoref{fig:vdm_fill_program}.
 
@@ -14,14 +14,14 @@ The LHC beam positions throughout the entire vdM program is shown in \autoref{fi
 	\label{fig:vdm_fill_program}
 \end{figure}
 
-As can be seen in \autoref{fig:vdm_fill_program}, during the vdM scans, the beams start by being maximally separated by approximately $578 \mu m$. They are then scanned across each other in 25 steps of approximately $48 \mu m$, remaining in the same position for 30 seconds for each step. In the beam imaging scans, one of the beams is fixed in the nominal head-on position while the other is moved from approximately $-433 \mu m$ to $+433 \mu m$ in 19 steps of 46 seconds each.
+As can be seen in \autoref{fig:vdm_fill_program}, during the vdM scans, the beams start by being maximally separated by approximately $578 \mu$m. They are then scanned across each other in 25 steps of approximately $48 \mu$m, remaining in the same position for 30 seconds for each step. In the beam imaging scans, one of the beams is fixed in the nominal head-on position while the other is moved from approximately $-433 \mu$m to $+433 \mu$m in 19 steps of 46 seconds each.
 
 The measured luminometer rates are fitted as a function of the beam separation with the model described in \autoref{eq:double_gaussian_model} and the luminometer calibrations are determined from the fit parameters as detailed in \autoref{eq:calibration_from_fit_parameters}. The fits were performed on the data from the 6 vdM and the 2 im scan pairs and its associated visible cross sections were measured. \autoref{fig:no_Corr_xsec_results_HFET} shows the visible cross section measurement results for the HFET luminometer with none of the corrections mentioned in \autoref{sec:experiment_conditions_and_corrective_procedures} having been applied.
 
 \begin{figure}[!htb]
 	\centering
 	\makebox[\textwidth]{\includegraphics[width=0.9\paperwidth]{images/assets/no_Corr_xsec_results_HFET.pdf}}
-	\caption[Initial HFET visible cross section results]{Initial visible cross section results obtained from uncorrected, raw data for the HFET luminometer, as an example. On the left, the measured per-bunch visible cross sections with their associated fit uncertainties are shown. The standard error on the mean (sem) is also depicted in the legend. The right image shows the measured visible cross section taking the average over all 136 BCIDs for each vdM and im scan pairs. The error bars are defined by the root mean squared (RMS) over all BCIDs. The central value and its uncertainty are determined by calculating the uncertainty-weighted average and  standard deviation over the scan pairs.}
+	\caption[Initial HFET visible cross section results]{Initial visible cross section results obtained from uncorrected, raw data for the HFET luminometer, as an example. On the left, the measured per-bunch visible cross sections with their associated fit uncertainties are shown. The standard error on the mean (sem) is also depicted in the legend. The right image shows the measured visible cross section taking the average over all 136 BCIDs for each vdM and im scan pairs. The error bars are defined by the root mean squared (RMS) over all BCIDs. The central value and its uncertainty are determined by calculating the uncertainty-weighted average and standard deviation over the scan pairs.}
 	\label{fig:no_Corr_xsec_results_HFET}
 \end{figure}
 
@@ -50,11 +50,11 @@ Beam-induced background and detector noise are both sources of background that a
 	where the beam-induced background, $\mathrm{BIB}$, from the two beams is considered as well as the detector-specific noise, $\eta$. Furthermore, $\mathrm{BIB}$ is calculated like:
 	\begin{equation}
 		\label{eq:bkg_eq2}
-		\mathrm{BIB} = \mathrm{FNCR} + \eta.
+		\mathrm{BIB} = \mathrm{FNCR} - \eta.
 	\end{equation}
 	Here, $\mathrm{FNCR}$, is the measured rate from filled non-colliding bunches. Finally, the detector noise is calculated as the average signal from empty non-colliding bunches, $\mathrm{ENCR}$. Combining \autoref{eq:bkg_eq1} and \autoref{eq:bkg_eq2}, the background in colliding bunches is calculated as:
 	\begin{equation}
-		\mathrm{BKG} = 2 \cdot \mathrm{FNCR} + \mathrm{ENCR}.
+		\mathrm{BKG} = 2 \cdot \mathrm{FNCR} - \mathrm{ENCR}
 	\end{equation}
     This method heavily relies on the number of filled non-colliding bunches, of which there were only two in the vdM fill, in order to accurately measure $\mathrm{BIB}$. Since super separation scans are never done under physics conditions, this method is the only option available for emittance scans during physics fills.
 \end{itemize}
@@ -127,13 +127,13 @@ These corrections have a similar effect on all luminometers. The FBCT to DCCT ca
 
 \subsection{Length scale calibration}
 
-During a vdM scan pair, the beams perform 25 steps in both planes. The movement of these beams is controlled with a pair of steering dipoles located on either side of the IP. However, the scale of each step may differ from the nominally intended step length. For example, an intended nominal step of, say, 1 $\mu m$ may correspond to $0.99$ $\mu m$. This can be generalized for any nominal position, $x_{\mathrm{nom}}$, and the associated actual measurement, $x_{\mathrm{real}}$, as:
+During a vdM scan pair, the beams perform 25 steps in both planes. The movement of these beams is controlled with a pair of steering dipoles located on either side of the IP. However, the scale of each step may differ from the nominally intended step length. For example, an intended nominal step of, say, 1 $\mu$m may correspond to $0.99$ $\mu$m. This can be generalized for any nominal position, $x_{\mathrm{nom}}$, and the associated actual measurement, $x_{\mathrm{meas}}$, as:
 \begin{equation}
-	x_{\mathrm{meas}} = \alpha x_{\mathrm{nom}}
+	x_{\mathrm{meas}} - x_{\mathrm{nom}}= \left(\alpha - 1\right) x_{\mathrm{nom}}
 \end{equation}
 where $\alpha$ is called the length scale factor. This parameter encodes the first-order linear response of the magnets to the nominal input positions.
 
-This correction revolves around the comparison between the nominal and actual beam spot positions. The beam spot is the overall distribution of the vertices reconstructed from tracks registered in the tracking detector and its position refers to the average of this position. The CMS tracker \cite{Sirunyan:2759951}, provides the actual beam spot measurements, $\overline{x^{\mathrm{real}}_{\mathrm{BS}}}$, and the nominal measurement assumes that the individual beam profiles are Gaussian and factorizable. Therefore, the beam spot is computed as the weighted average from the two beams as \cite{CMS-PAS-LUM-22-001}:
+This correction revolves around the comparison between the nominal and actual beam spot positions. The beam spot is the overall distribution of the vertices reconstructed from tracks registered in the tracking detector and its position refers to the average of this position. The CMS tracker \cite{Sirunyan:2759951}, provides the actual beam spot measurements, $\overline{x^{\mathrm{meas}}_{\mathrm{BS}}}$, and the nominal measurement assumes that the individual beam profiles are Gaussian and factorizable. Therefore, the beam spot is computed as the weighted average from the two beams as \cite{CMS-PAS-LUM-22-001}:
 \begin{equation}
 	\overline{x^{\mathrm{nom}}_{\mathrm{BS}}} = \frac{\overline{x_1}\sigma_{x1}^{-2} + \overline{x_2}\sigma_{x2}^{-2}}{\sigma_{x1}^{-2} + \sigma_{x2}^{-2}},
 \end{equation}
@@ -148,7 +148,7 @@ In practice, the length scale scans, as shown in \autoref{fig:vdm_fill_program},
 	\label{fig:length_scale_scans}
 \end{figure}
 
-The difference between the real and nominal beam spot measurements are plotted as a function of the beam positions and a linear fit is performed to obtain the $\alpha$ factor. An example fit for the Up stage of the variable length scale scan is shown in \autoref{fig:fig:variable_length_scale_fit}. The overall length scale factor was calculated from a weighted average on the factors obtained from every possible scan and scan stage. The results are summarised in \autoref{fig:length_scale_fit_summary}.
+The difference between the measured and nominal beam spot measurements are plotted as a function of the beam positions and a linear fit is performed to obtain the $\alpha$ factor. An example fit for the Up stage of the variable length scale scan is shown in \autoref{fig:fig:variable_length_scale_fit}. The overall length scale factor was calculated from a weighted average on the factors obtained from every possible scan and scan stage. The results are summarised in \autoref{fig:length_scale_fit_summary}.
 
 \begin{figure}[!htb]
 	\centering
@@ -231,7 +231,7 @@ The correction applied to the nominal beam positions, using the measurements fro
 	\begin{figure}[!htb]
 		\centering
 		\makebox[\textwidth]{\includegraphics[width=0.6\paperwidth]{images/assets/linear_orbit_drift_vdm1x.pdf}}
-		\caption[Orbit drift correction calculation]{Orbit drift correction calculated from the interpolation of the BPM measurements done before and after the vdM1 scan in the horizontal plane. The nominal beam separations (left axis), at every scan step and in $mm$,  are represented by the solid red lines, the interpolated points can be seen as black crosses. The linear interpolation was conducted for both BPM systems, DOROS (blue) and arcBPM (orange), and both planes, horizontal (squares) and vertical (circles). The orbit drifts (right axis) are expressed in $\mu m$.}
+		\caption[Orbit drift correction calculation]{Orbit drift correction calculated from the interpolation of the BPM measurements done before and after the vdM1 scan in the horizontal plane. The nominal beam separations (left axis), at every scan step, are represented by the solid red lines, the anchor points can be seen as black crosses. The linear interpolation was conducted for both BPM systems, DOROS (blue) and arcBPM (orange), and both planes, horizontal (squares) and vertical (circles).}
 		\label{fig:linear_orbit_drift_vdm1x}
 	\end{figure}
 
@@ -255,7 +255,7 @@ The correction applied to the nominal beam positions, using the measurements fro
 		R\left( x, y\right) = R\left( x, y + \Delta_y \right) \cdot \frac{r_y(y)}{r_y(y + \Delta_y)}.
 	\end{equation}
 
-	\item \textbf{Residual orbit drift}: After the linear orbit drift correction is applied, some residual differences remain between the nominal and the BPM measured beam positions. The length scale and the beam-beam deflection corrections are part of this residual difference and are accounted for as described in the previous sections. To correct for the remaining unpredictable deviations the residual differences are fitted as follows:
+	\item \textbf{Residual orbit drift}: After the linear orbit drift (linOD) correction is applied, some residual differences remain between the nominal (NOM) and the BPM measured beam positions. The length scale and the beam-beam (BB) deflection corrections are part of this residual difference and are accounted for as described in the previous sections. To correct for the remaining unpredictable deviations the residual differences are fitted as follows:
     \begin{gather}
     \mathrm{BPM}_{\mathrm{scanning}} - \mathrm{linOD}_{\mathrm{scanning}} = \alpha \mathrm{NOM}_{\mathrm{scanning}} + \beta \mathrm{BB}(\Delta\mathrm{NOM_{\mathrm{scanning}}}) + c_{\mathrm{scanning}} \\
     \mathrm{BPM}_{\mathrm{stationary}} - \mathrm{linOD}_{\mathrm{stationary}} = \gamma \mathrm{NOM}_{\mathrm{scanning}} + \frac{\gamma}{\alpha} \beta \mathrm{BB}(\Delta\mathrm{NOM}_{\mathrm{scanning}}) + c_{\mathrm{stationary}}
@@ -301,13 +301,13 @@ Upon correcting the beam separations and the non-scanning beam rates for the lin
         \hline
         \multirow{2}{*}{Method} & \multicolumn{2}{c|}{DOROS} & \multicolumn{2}{c}{arcBPM} \\
         \cline{2-5}
-         & $\sigma_{\mathrm{vis}}$ [$\mu b$] & Uncertainty (\%) & $\sigma_{\mathrm{vis}}$ [$\mu b$] & Uncertainty (\%) \\
+         & $\sigma_{\mathrm{vis}}$ [$\mu$b] & Uncertainty (\%) & $\sigma_{\mathrm{vis}}$ [$\mu$b] & Uncertainty (\%) \\
         \hline
         Sep     & 3243.48 & 0.53 & 3246.49 & 0.47 \\
         AvgBB   & 3262.38 & 0.56 & 3252.75 & 0.42 \\
         ComLS   & 3183.52 & 0.91 & 3247.55 & 0.46 \\
         ComBB   & 3255.48 & 0.58 & 3249.46 & 0.47 \\
-        ComLSBB & 3260.45 & 0.59 & 3254.09 & 0.46 \\
+        \textbf{ComLSBB} & 3260.45 & 0.59 & \textbf{3254.09} & \textbf{0.46} \\
         \hline
     \end{tabular}
 \end{table}
@@ -330,7 +330,7 @@ One of these methods is the 2D rate fit method, which has been carried out sever
 	\label{fig:off_axis_scans}
 \end{figure}
 
-The combination of on-axis with off-axis scans allows for the probing of the overlap bunch distribution along a different paths. This provides more information about the non-factorizable nature of this distribution. For 2023 vdM program, the scan combinations were vdM1+diag1, diag1+BI1, vdM3+off1, off1+vdM4, vdM4+diag2 and diag2+vdM5. The visible cross section corrections for all these combinations are shown in \autoref{fig:2d_rate_fit_xsec_corrections}.
+The combination of on-axis with off-axis scans allows for the probing of the overlap bunch distribution along different paths. This provides more information about the non-factorizable nature of this distribution. For 2023 vdM program, the scan combinations were vdM1+diag1, diag1+BI1, vdM3+off1, off1+vdM4, vdM4+diag2 and diag2+vdM5. The visible cross section corrections for all these combinations are shown in \autoref{fig:2d_rate_fit_xsec_corrections}.
 
 \begin{figure}[!htb]
 	\centering
@@ -339,12 +339,12 @@ The combination of on-axis with off-axis scans allows for the probing of the ove
 	\label{fig:2d_rate_fit_xsec_corrections}
 \end{figure}
 
-Lastly, a 3D fit in the luminous region is performed to luminometer rates using parameters of the 3D ellipsoid of the reconstructed beamspot and the bunch length data from the LHC LDM. One of the main advantages of this method, in comparison to the 2D rate method, is the ability to obtain a cross section measurement for every vdM and im scan separately. For this reason, the corrections to the detectors calibration were derived from this method. A comparison to the 2D rate fit method is shown in \autoref{fig:luminous_region_vs_2d_rate_fit}, which shows good agreement between both methods. The large time dependence in the correction values demonstrate the change in beam overlap shape throughout the vdM fill.
+Lastly, a 3D fit of the luminous region is performed to luminometer rates using parameters of the 3D ellipsoid of the reconstructed beamspot and the bunch length data from the LHC LDM. One of the main advantages of this method, in comparison to the 2D rate method, is the ability to obtain a cross section measurement for every vdM and im scan separately. For this reason, the corrections to the detectors calibration were derived from this method. A comparison to the 2D rate fit method is shown in \autoref{fig:luminous_region_vs_2d_rate_fit}, which shows good agreement between both methods. The large time dependence in the correction values demonstrates the change in beam overlap shape throughout the vdM fill.
 
 \begin{figure}[!htb]
 	\centering
 	\makebox[\textwidth]{\includegraphics[width=0.5\paperwidth]{images/assets/luminous_region_vs_2d_rate_fit.png}}
-	\caption[Factorization corrections on visible cross section from luminous region method.]{Average correction for the visible cross section over nine BCIDs using five different models of the luminous region (LR) method. The scans are ordered in time. The averages include only BCIDs for which high-statistics zero bias samples are available, and the uncertainties indicate the RMS over these BCIDs. A small number of bad quality fits with anomalously large reduced $\chi^2$ > 5 were discarded. Results for three models of the bunch proton density are shown: weighted sum of three (TG), four (QG) or five (PG) 3-dimensional Gaussians. The results – choosing the best and the second best (i.e. smallest) reduced $\chi^2$ fits from the nine tested models – are also given. On the right, the LR results are compared to the average corrections over 136 BCIDs using the 2D rate fit method (from \textit{Ref.} \cite{CMS-DP-2024-068}).}
+	\caption[Factorization corrections on visible cross section from luminous region method.]{Average correction for the visible cross section over nine BCIDs using five different models of the luminous region (LR) method. The scans are ordered in time. The averages include only BCIDs for which high-statistics zero bias samples are available, and the uncertainties indicate the RMS over these BCIDs. A small number of bad quality fits with anomalously large reduced $\chi^2$ > 5 were discarded. Results for three models of the bunch proton density are shown: weighted sum of three (TG), four (QG) or five (PG) 3-dimensional Gaussians. The results – choosing the best and the second best (i.e. smallest) reduced $\chi^2$ fits from the twenty seven tested models – are also given (from \textit{Ref.} \cite{CMS-DP-2024-068}).}
 	\label{fig:luminous_region_vs_2d_rate_fit}
 \end{figure}
 
@@ -361,14 +361,14 @@ The visible cross section results were determined by performing a weighted avera
 	\centering
 	\begin{tabular}{lcccc}
 		\hline
-		Luminometer & Measured $\sigma_\mathrm{vis}$ & SEM  & Bunches RMS & Scans RMS \\
+		Luminometer & Measured $\sigma_\mathrm{vis}$ & SEM  & Bunches RMS range & Scans RMS \\
 		\hline
-		BCM1F & 136.36 $\mu b$ & 0.17 $\mu b$ & 0.58-1.03 $\mu b$ (0.43-0.76\%) & 0.41 $\mu b$ (0.30\%) \\
-		BCM1FUTCA & 127.55 $\mu b$ & 0.15 $\mu b$ & 0.61-1.09 $\mu b$ (0.48-0.85\%) & 0.40 $\mu b$ (0.31\%) \\
-		HFET & 3294.69 $\mu b$ & 3.86 $\mu b$ & 12.82-21.78 $\mu b$ (0.39-0.66\%) & 9.28 $\mu b$ (0.28\%) \\
-		HFOC & 946.05 $\mu b$ & 1.12 $\mu b$ & 2.49-5.92 $\mu b$ (0.26-0.63\%) & 2.63 $\mu b$ (0.28\%) \\
-		PLT & 301.39 $\mu b$ & 0.37 $\mu b$ & 1.52-2.38 $\mu b$ (0.50-0.79\%) & 0.90 $\mu b$ (0.30\%) \\
-		PCC & 1305.23 $mb$ & 1.21 $mb$ & 3.31-8.85 $mb$ (0.25-0.68\%) & 3.27 $mb$ (0.25\%) \\
+		BCM1F & 136.36 $\mu$b & 0.17 $\mu$b & 0.58-1.03 $\mu$b (0.43-0.76\%) & 0.41 $\mu$b (0.30\%) \\
+		BCM1FUTCA & 127.55 $\mu$b & 0.15 $\mu$b & 0.61-1.09 $\mu$b (0.48-0.85\%) & 0.40 $\mu$b (0.31\%) \\
+		HFET & 3294.69 $\mu$b & 3.86 $\mu$b & 12.82-21.78 $\mu$b (0.39-0.66\%) & 9.28 $\mu$b (0.28\%) \\
+		HFOC & 946.05 $\mu$b & 1.12 $\mu$b & 2.49-5.92 $\mu$b (0.26-0.63\%) & 2.63 $\mu$b (0.28\%) \\
+		PLT & 301.39 $\mu$b & 0.37 $\mu$b & 1.52-2.38 $\mu$b (0.50-0.79\%) & 0.90 $\mu$b (0.30\%) \\
+		PCC & 1305.23 mb & 1.21 mb & 3.31-8.85 mb (0.25-0.68\%) & 3.27 mb (0.25\%) \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -433,7 +433,7 @@ Using the resulting fits, we extract the measured effective width and height of 
 
 \section{Integration}
 
-In the previous section, the process by which the detector calibration factors were obtained was discussed. In this section, the performance of these calibrations in maximizing the agreement between luminometers during the vdM fill and, more importantly, under physics conditions is evaluated. A discussion on the year-long detector consistency will be presented, along with details on the specific stability corrections applied to the BCM1F. Additionally, the issue of detector non-linearity will be addressed, focusing on the PLT corrections. Finally, this section will present the final integrated luminosity for 2023, along with the associated relative uncertainty.
+In the previous section, the process by which the detector calibration factors were obtained was discussed. In this section, the performance of these calibrations in maximizing the agreement between luminometers during the vdM fill and, more importantly, under physics conditions is evaluated. A discussion on the year-long detector consistency will be presented, along with details on the specific stability corrections applied to the BCM1F. Additionally, the issue of detector non-linearity will be addressed, focusing on the PLT corrections. Finally, this section will present the preliminary integrated luminosity for 2023, along with the associated relative uncertainty.
 
 \newpage
 
@@ -476,7 +476,7 @@ With the vdM calibrations validated, they can be used to calibrate the rates of 
 	\label{fig:vdm_only_year_stability}
 \end{figure}
 
-Three main observations can be made when analyzing the ratios in \autoref{fig:vdm_only_year_stability}. The most obvious is the high discrepancy between different luminometers. PLT stands out as a clear example of this, but in general, the luminometers do not show good agreement. Secondly, some detectors exhibit significant steps throughout the year. Notable examples include BCM1F at the beginning and HFET from \(20.5 \, \text{fb}^{-1}\) to \(22 \, \text{fb}^{-1}\) and from \(27 \, \text{fb}^{-1}\) to \(27.5 \, \text{fb}^{-1}\). Lastly, the ratios show some non-linear responses, as is clearly seen in PLT. These observations highlight the difficulty in extrapolating the calibrations outside the vdM fill, as explained in \autoref{subsec:extrapolation_of_vdM_calibration}.
+Three main observations can be made when analyzing the ratios in \autoref{fig:vdm_only_year_stability}. The most obvious is the high discrepancy between different luminometers. PLT stands out as a clear example of this, but in general, the luminometers do not show good agreement. Secondly, some detectors exhibit significant steps throughout the year. Notable examples include BCM1F at the beginning and HFET from 20.5 $\text{fb}^{-1}$ to 22 $\text{fb}^{-1}$ and from 27 $\text{fb}^{-1}$ to 27.5 $\text{fb}^{-1}$. Lastly, the ratios show some non-linear responses, as is clearly seen in PLT. These observations highlight the difficulty in extrapolating the calibrations outside the vdM fill, as explained in \autoref{subsec:extrapolation_of_vdM_calibration}.
 
 In the next sections, the issues of detector stability and non-linearity will be addressed, with examples of these corrections for the BCM1F and PLT detectors.
 
@@ -486,7 +486,7 @@ The loss of efficiency that a detector exhibits throughout the year is corrected
 
 Many fills conducted during the year 2023 had designated beam time to perform emittance scans. From these scans, the detectors' visible cross sections are continuously measured, allowing for the tracking of the detectors' efficiency throughout the year. The loss of efficiency experienced by a detector is indicated by gradually decreasing \(\sigma_{\mathrm{vis}}\) measurements. When subsequent measurements do not follow the expected trend, it typically indicates that the detector is operating under non-optimized conditions. In such cases, the detector's running configurations are adjusted to restore normal operation conditions.
 
-When extrapolating the vdM calibration to other fills, a linear regression is performed on the FOM values as a function of integrated luminosity. The fitted line is then normalized to the vdM since this represents our best calibration measurement. \autoref{fig:efficiency_bcm1f_example} shows the fit performed for the BCM1F measurements. The significant step at the beginning of \autoref{fig:efficiency_bcm1f_example} corresponds to a period when the BCM1F charge thresholds were set so high that it was counting noise as hits, leading to the apparent increase in efficiency.
+When extrapolating the vdM calibration to other fills, a linear regression is performed on the FOM values as a function of integrated luminosity. The fitted line is then normalized to the vdM since this represents our best calibration measurement. \autoref{fig:efficiency_bcm1f_example} shows the fit performed for the BCM1F measurements. The significant step at the beginning of \autoref{fig:efficiency_bcm1f_example} corresponds to a period when the BCM1F current thresholds were set so high that it was counting noise as hits, leading to the apparent increase in efficiency.
 
 \begin{figure}[!htb]
 	\centering
@@ -521,7 +521,7 @@ For BCM1F, the non-linearity was extracted from a $\mu$-scan fill. A $\mu$-scan 
 
 In \autoref{fig:vdm_only_year_stability}, the ratios were taken with respect to the average luminosity of all luminometers. However, the luminosity results have to be available via the \textit{brilcalc} database, which places constraints on the data format. For this reason, at the time of writing, DT was chosen as the reference detector. Since DT is not a independently-calibrated luminometer due to lack of available statistics, it was calibrated to the average of the other luminometers, effectively representing the average luminosity among them.
 
-During the 2023 analysis, DT had been cross-calibrated to HFET in fill 9036 which yielded an calibration of $\sigma^{\text{DT}}_{\mathrm{vis}} = 179725 \mu b$. To scale this cross-calibrated version of DT to the luminosity average, the average ratio of every other luminometer with respect to this DT was taken. The results are shown in \autoref{tab:dt_cross_calibration}.
+During the 2023 analysis, DT had been cross-calibrated to HFET in fill 9036 which yielded an calibration of $\sigma^{\text{DT}}_{\mathrm{vis}} = 179725 \mu$b. To scale this cross-calibrated version of DT to the luminosity average, the average ratio of every other luminometer with respect to this DT was taken. The results are shown in \autoref{tab:dt_cross_calibration}.
 
 \begin{table}[!htb]
 	\caption{Average and RMS of all fully-corrected independently-calibrated luminometers with respect to HFET-cross-calibrated DT.}
@@ -546,12 +546,12 @@ Weighting the average of the values in \autoref{tab:dt_cross_calibration} by the
 
 \section{Final Luminosity Results}
 
-As in \autoref{subsec:vdm_consistency}, the year-long detector stability is illustrated. The best visible cross sections are utilized, with stability and non-linearity corrections applied.
+As in \autoref{subsec:vdm_consistency}, the year-long detector stability is illustrated. The fully corrected visible cross sections are utilized, with stability and non-linearity corrections applied.
 
 \begin{figure}[!htb]
     \centering
     \makebox[\textwidth]{\includegraphics[width=0.7\paperwidth]{images/assets/final_preliminary_year_stability.pdf}}
-    \caption[Final full year stability]{The left plot shows the ratios of the luminosity measured in time windows of 50 LS (about 20 minutes) between different luminometers and the reference luminometer as a function of the integrated luminosity over the 2023 pp data-taking period.}
+    \caption[Final full year stability]{The left plot shows the ratios of the luminosity measured in time windows of 50 LS (about 20 minutes) between different luminometers and the reference luminometer (the cross-calibrated DT) as a function of the integrated luminosity over the 2023 pp data-taking period.}
     \label{fig:final_preliminary_year_stability}
 \end{figure}
 

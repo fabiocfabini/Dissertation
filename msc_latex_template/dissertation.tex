@@ -70,6 +70,8 @@
            {[}{{\textcolor{red}{[}}}1 % Left bracket
            {]}{{\textcolor{red}{]}}}1 % Right bracket
 }
+\usepackage[style=ieee, maxnames=3, minnames=1, backend=bibtex]{biblatex} % Modern bibliography management
+\addbibresource{dissertation_clean.bib} % Link to the bibliography file
 
 
 % Make todo notes inline by default
@@ -89,7 +91,7 @@
 \titleA{Luminosity Calibrations at the CERN\\Compact Muon Solenoid Experiment}
 
 \masters{Master’s in Physics Engineering}
-\area{Physics Information}
+\area{Specialization in Physics Information}
 \supervisor{Nuno Filipe Da Silva Fernandes De Castro}
 \cosupervisor{Andres Guillermo Delannoy Sotomayor}
 
@@ -100,7 +102,7 @@
 \newcommand{\note}[2][]{\todo[color=green!20!white,#1]{#2}}
 \newcommand{\fixme}[2][]{\todo[color=red!20!white,#1]{#2}}
 
-\bibpunct[,]{(}{)}{;}{a}{,}{,}
+% \bibpunct[,]{(}{)}{;}{a}{,}{,}
 \begin{document}
 \setlength{\parindent}{0em}
 
@@ -150,8 +152,7 @@
 \input{chapters/ConclusionsAndFutureWork}
 
 \renewcommand{\baselinestretch}{1}
-\bibliographystyle{ieeetr}
-\bibliography{dissertation}
+\printbibliography
 \printindex
 
 % \appendix

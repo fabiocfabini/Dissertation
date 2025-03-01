@@ -1,7 +1,6 @@
 \chapter{Luminosity Calibration at the LHC}
 
-CERN’s mission of understanding the fundamental structure of the universe is heavily reliant on particle accelerators. The effectiveness of the experiments conducted in these machines is closely tied to their luminosity, as detailed in \autoref{sec:luminosity}. 
-In this chapter, the van der Meer (vdM) scan methodology used to measure the luminometer's calibration factor is explained first. Subsequently, the corrective procedures applied to optimize the accuracy and precision of this method are discussed. Finally, the challenges associated with extrapolating the results obtained with the vdM method for the rest of the data-taking period are addressed.
+CERN’s mission of understanding the fundamental structure of the universe is heavily reliant on particle accelerators. In this chapter, the van der Meer (vdM) scan methodology used to measure the luminometer's calibration factor is explained first. Subsequently, the corrective procedures applied to optimize the accuracy and precision of this method are discussed. Finally, the challenges associated with extrapolating the results obtained with the vdM method for the rest of the data-taking period are addressed.
 \section{Absolute luminosity calibration}
 \label{sec:absolute_luminosity_calibration}
 
@@ -16,7 +15,7 @@ Recalling \autoref{eq:sbil-machine-params} and \autoref{eq:effective-area}, we c
 
 \begin{equation}
     \label{eq:sbil_separating_planes}
-    \mathcal{L}_b \left( \Delta_x, \Delta_y \right) = N_1 N_2 f_{rev} \int \rho_1 (x, y) \rho_2 (x + \Delta_x, y + \Delta_y) dx dy
+    \mathcal{L}_b \left( \Delta_x, \Delta_y \right) = N_1 N_2 f_{rev} \int \rho_1 (x + \frac{\Delta_x}{2}, y + \frac{\Delta_y}{2}) \rho_2 (x - \frac{\Delta_x}{2}, y - \frac{\Delta_y}{2}) dx dy
 \end{equation}
 
 As shown in \cite{vanderMeer:296752}, when a separation scan is performed in either transverse direction, where $\Delta_x$ and/or $\Delta_y$ is varied in a step-wise manner, the effective width and height of the luminous region can be expressed as:
@@ -24,8 +23,8 @@ As shown in \cite{vanderMeer:296752}, when a separation scan is performed in eit
 \begin{equation}
     \begin{aligned}
         \label{eq:effective_width_height_scan}
-        W_{eff} = \frac{\int \int \rho_1 (x) \rho_2 (x + \Delta_x) dx d\Delta_x}{\int \rho_1 (x) \rho_2 (x) dx} = \frac{\int \mathcal{L}_b \left( \Delta_x, 0 \right) d\Delta_x}{\mathcal{L}_b \left( 0, 0 \right)} \\
-        H_{eff} = \frac{\int \int \rho_1 (y) \rho_2 (y + \Delta_y) dy d\Delta_y}{\int \rho_1 (y) \rho_2 (y) dy} = \frac{\int \mathcal{L}_b \left( 0, \Delta_y \right) d\Delta_y}{\mathcal{L}_b \left( 0, 0 \right)}
+        W_{eff} = \frac{\int \int \rho_1 (x) \rho_2 (x + \frac{\Delta_x}{2}) dx d\Delta_x}{\int \rho_1 (x) \rho_2 (x) dx} = \frac{\int \mathcal{L}_b \left( \Delta_x, 0 \right) d\Delta_x}{\mathcal{L}_b \left( 0, 0 \right)} \\
+        H_{eff} = \frac{\int \int \rho_1 (y) \rho_2 (y + \frac{\Delta_y}{2}) dy d\Delta_y}{\int \rho_1 (y) \rho_2 (y) dy} = \frac{\int \mathcal{L}_b \left( 0, \Delta_y \right) d\Delta_y}{\mathcal{L}_b \left( 0, 0 \right)}
     \end{aligned}
 \end{equation}
 
@@ -58,7 +57,7 @@ The visible cross section, $\sigma_{vis}$, can also be expressed as a function o
     \label{eq:calibration_from_fit_parameters}
 \end{equation}
 
-where $R_{peak}$ is taken as the arithmetic mean of the peak values, $r_X$ and $r_Y$, of both scan curves. This fit procedure is applied for every bunch crossing. Since the visible cross section results heavily dependent on how well the fit converges we only apply this method on the luminometers which have per-bunch granularity.
+where $R_{peak}$ is taken as the arithmetic mean of the peak values, $r_X$ and $r_Y$, of both scan curves. This fit procedure is applied for every bunch crossing. Since the visible cross section results heavily depend on how well the fit converges we only apply this method on the luminometers which have per-bunch granularity.
 
 \autoref{fig:vdm_scan_steps} illustrates the beam separations during two vdM scans, one in each transverse direction.
 
@@ -72,7 +71,7 @@ where $R_{peak}$ is taken as the arithmetic mean of the peak values, $r_X$ and $
 \subsection{Experimental Conditions and Corrective Procedures}
 \label{sec:experiment_conditions_and_corrective_procedures}
 
-A vdM scan is conducted under experimental conditions that allow for the measurement of the visible cross section to the highest precision. These conditions include smaller beam intensities, which minimize the effect of BIB and reduce non-linearity effects, and well-separated bunches, which minimize afterglow effects \cite{GRAFSTROM201597}. In addition to these optimized experimental conditions, a series of offline corrections are performed to ensure the required level of precision. These corrections include:
+A vdM scan is conducted under experimental conditions that allow for the measurement of the visible cross section to the highest accuracy. These conditions include smaller beam intensities, which minimize the effect of BIB and reduce non-linearity effects, and well-separated bunches, which minimize afterglow effects \cite{GRAFSTROM201597}. In addition to these optimized experimental conditions, a series of offline corrections are performed to ensure the required level of accuracy. These corrections include:
 
 \begin{itemize}
     \item \textbf{Background estimation:} Background signals, whether beam-induced, from detector noise, or machine-induced, are typically present in the raw recorded rates. These additional contributions are removed.
@@ -109,7 +108,7 @@ Two new parameters have been introduced. \(\epsilon\) is the parameter that corr
 
 \begin{equation}
     \centering
-    \text{FOM} = \frac{\sigma^{\text{vdM}}_{vis}}{\sigma^{\text{emit}}_{vis}}
+    \text{FOM} = \frac{\sigma^{\text{emitt}}_{vis}}{\sigma^{\text{vdM}}_{vis}}
     \label{eq:figure_of_merit}
 \end{equation}
 
@@ -144,9 +143,9 @@ In addition to the vdM scan, other types of scans are performed during the vdM f
 \begin{itemize}
     \item \textbf{Super Separation scans (ss):} These scans involve maximally separating the beams in the LHC, allowing for an accurate measurement of the background for each luminometer.
     \item \textbf{Beam Imaging scans (im):} In these scans, one beam is kept fixed in its nominal head-on position while the other beam is scanned. These scans are used for the beam-imaging method \cite{Klute_2017}, which is employed in XY factorization analysis. A visible cross section is also extracted from these scans, similar to vdM scans.
-    \item \textbf{Diagonal scans (diag):} These are vdM scans performed at distinct angles, such as +45º/-45º, +30º/-60º, and +60º/-30º. They allow the fitting to occur over different regions of the beam overlap and are used in XY factorization studies.
+    \item \textbf{Diagonal scans (diag):} These are vdM scans performed at distinct angles, such as +45º/-45º, +30º/-60º, and +60º/-30º. They sample over different regions of the beam overlap shape and are used in XY factorization studies.
     \item \textbf{Offset scans (off):} These scans have the same motion as vdM scans, but one of the beams is not in the nominal head-on position. They are used in beam shape studies to determine the XY factorization bias.
     \item \textbf{Variable/Constant length scale scans (vls, cls):} These scans involve moving the beams together at constant or variable separation and are used to calibrate the distance by which the steering magnets displace the beams.
 \end{itemize}
 
-Each scan is separately recorded and analyzed offline. After thorough analysis, the corrective procedures determined from each of these special scans are applied to the vdM scan analysis to correct the extracted detector calibration. In principle, these corrections affect every luminometer in a similar fashion.
+Each scan is separately recorded and analyzed offline. After thorough analysis, the corrective procedures determined from each of these special scans are applied to the vdM scan analysis to correct the extracted detector calibration. These corrections affect every luminometer in a similar fashion.
